@@ -1,0 +1,51 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/navbar.ejs') %> 
+
+<div class="tabela-container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Raça</th>
+        <th scope="col">Etiqueta</th>
+        <th scope="col">Idade (Meses) </th>
+        <th scope="col">Sexo</th>
+        <th scope="col">Coleira</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% animais.forEach(animal=> { %>
+        <tr>
+            <th scope="row">
+                <%= animal.id %>
+            </th>
+            <td>
+                <%= animal.nome %>
+            </td>
+            <td>
+                <%= animal.raca %>
+            </td>
+            <td>
+              <%= animal.n_etiqueta %>
+          </td>
+          <td>
+            <%= animal.idade %>
+        </td>
+        <td>
+          <%= animal.sexo %>
+      </td>
+      <td>
+        <% if (animal.coleira == 1) { %>
+          <p>Ativo</p>
+        <%} if (animal.coleira == 0) { %>
+          <p>Inativo</p>  
+        <%}%>
+    </td>
+        </tr>
+        <% }) %>
+
+    </tbody>
+  </table>
+</div>
+<%- include('partials/footer.ejs') %>
