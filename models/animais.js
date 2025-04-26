@@ -2,12 +2,6 @@ import Sequelize from "sequelize";
 import connection from "../config/sequelize-config.js";
 
 const Animais = connection.define('bubalinos', {
-    idBubalinos: {
-        // Tipo do dado
-        type: Sequelize.INTEGER,
-        // Permite Vazio?
-        allowNull: false
-    },
     nome: {
         type: Sequelize.STRING,
         allowNull: true
