@@ -278,10 +278,10 @@ html, body {
 .forgot-password:focus{
     color: #fff;
 }
-/*  */
-
-
 /* TERMINA LOGIN.EJS */
+
+
+
 /* COMEÇA INDEX.EJS */
 tbody tr:nth-child(odd) {
     background-color: white;
@@ -301,6 +301,7 @@ tbody tr:nth-child(odd) {
     padding: 25px;
     width: 100%;
     display: inline-block; /* Faz com que a "borda" fique justinha na tabela */
+    
   }
 
 .nav-link {
@@ -310,9 +311,10 @@ tbody tr:nth-child(odd) {
 }
 
 
-
-
-
+#tabelas{
+  border: 2px solid #000000;
+  border-radius: 10px;
+}
 
 
 
