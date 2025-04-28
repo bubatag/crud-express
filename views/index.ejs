@@ -1,7 +1,7 @@
 <%- include('partials/header.ejs') %> 
 <%- include('partials/navbar.ejs') %>
 <div class="tabela-container" id="tabelas">
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AdicionarAnimalModal">Adicionar</button>
+  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#AdicionarAnimalModal">Adicionar</button>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -13,13 +13,13 @@
         <th scope="col">Idade</th>
         <th scope="col">Sexo</th>
         <th scope="col">Coleira</th>
-        <th scope="col" colspan="2" style="align-items: center;">Ações</th>
+        <th scope="col" colspan="2" style="text-align: center;">Ações</th>
       </tr>
     </thead>
     <tbody>
       <% animais.forEach(animal=> { %>
       <tr>
-        <td><a href="#"><button class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"></i></button></a></td>
+        <td><a href="#"><button class="btn btn-success"><i class="fa fa-eye" aria-hidden="true"></i></button></a></td>
         <th scope="row"><%= animal.id %></th>
         <td><%= animal.nome %></td>
         <td><%= animal.raca %></td>
@@ -33,7 +33,7 @@
           <p>Inativo</p>
           <%}%>
         </td>
-        <td><button class="btn btn-warning">Editar</button></td>
+        <td style="text-align: right;"><button class="btn btn-warning">Editar</button></td>
         <td><a onclick="return confirm('Deseja mesmo realizar a exclução do animal: <%= animal.nome %>')" href="/animais/delete/<%= animal.id %>"><button class="btn btn-danger">Excluir</button></a></td>
       </tr>
       <% }) %>
