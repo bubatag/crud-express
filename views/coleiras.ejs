@@ -1,0 +1,56 @@
+<%- include('partials/header.ejs') %> 
+<%- include('partials/navbar.ejs') %>
+<div class="tabela-container" id="tabelas">
+  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#AdicionarColeiraModal">Adicionar</button>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Visualizar</th>
+        <th scope="col">ID</th>
+        <th scope="col">Nº Etiqueta</th>
+        <th scope="col">IP</th>
+        <th scope="col" colspan="2" style="text-align: center;">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% coleiras.forEach(coleira=> { %>
+      <tr>
+        <td><a href="#"><button class="btn btn-success"><i class="fa fa-eye" aria-hidden="true"></i></button></a></td>
+        <th scope="row"><%= coleira.id %></th>
+        <td><%= coleira.n_coleira %></td>
+        <td><%= coleira.ip %></td>
+        <td style="text-align: right;"><a href="/coleiras/editar/<%= coleira.id %>"><button class="btn btn-warning">Editar</button></a></td>
+        <td><a onclick="return confirm('Deseja mesmo realizar a exclução da coleira: <%= coleira.ip %>')" href="/coleiras/delete/<%= coleira.id %>"><button class="btn btn-danger">Excluir</button></a></td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+<!-- Modal Adicionar Animal -->
+<div class="modal fade" id="AdicionarColeiraModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Adicionar Novo Animal</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="/coleiras/create" method="POST">
+      <div class="modal-body">
+            <label>Nº Coleira</label>
+              <input type="text" name="n_coleira" placeholder="Nº da Coleira" class="form-control" required>
+
+            <label>IP</label>
+              <input type="text" name="ip" placeholder="IP da Coleira" class="form-control" required>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="submit" class="btn btn-success">Adicionar</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+<%- include('partials/footer.ejs') %>

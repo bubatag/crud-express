@@ -6,7 +6,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
   // Pegando os dados do backend e transformando em JS puro
-  const dados = <%- JSON.stringify(dados) %>;
+  const dados = JSON.stringify(dados) ;
 
   const ctx = document.getElementById('graficoAcessos').getContext('2d');
   const grafico = new Chart(ctx, {
