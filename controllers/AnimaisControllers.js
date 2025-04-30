@@ -2,10 +2,10 @@ import express from "express";
 const router = express.Router();
 import Animais from "../models/animais.js";
 
-router.get("/index", function (req, res) {
+router.get("/animais", function (req, res) {
   // SELECT
   Animais.findAll().then((animais) => {
-      res.render("index", {
+      res.render("animais", {
         animais: animais,
       });
     })
@@ -23,7 +23,7 @@ router.get("/animais/delete/:id", (req,res) => {
     }
   }).then(() => {
     console.log("Cliente Excluido com Sucesso!");
-    res.redirect("/index");
+    res.redirect("/animais");
   }).catch((error) => {
     console.log(error);
   })
@@ -47,7 +47,7 @@ router.post("/animais/create", (req,res) => {
     coleira : coleira,
   }).then(() => {
     console.log("Registro efetuado com sucesso!");
-    res.redirect("/index");
+    res.redirect("/animais");
   }).catch((error) => {
     console.log(error);
   })

@@ -9,7 +9,7 @@ router.post("/login", async (req, res) => {
     const usuario = await Usuario.findOne({ where: { user: inputEmail } });
 
     if (usuario && usuario.password === inputPassword) {
-      res.redirect("/index");
+      res.redirect("/animais");
     } else {
       res.send("Usuário ou senha inválidos");
     }

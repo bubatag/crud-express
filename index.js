@@ -21,6 +21,15 @@ app.get("/", (req, res) => {
 app.use("/", AnimaisControllers);
 app.use("/", LoginController);
 
+app.get('/index', (req, res) => {
+  // Exemplo de dados fictícios
+  const dados = {
+      usuarios: 120,
+      acessos: [10, 20, 30, 40, 50]
+  };
+  res.render('index', { dados });
+});
+
 app.listen(8086, (error) => {
   if (error) {
     console.log("Erro ao iniciar servidor, erro: " + error);

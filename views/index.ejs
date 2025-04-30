@@ -1,82 +1,26 @@
-<%- include('partials/header.ejs') %> 
-<%- include('partials/navbar.ejs') %>
-<div class="tabela-container" id="tabelas">
-  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#AdicionarAnimalModal">Adicionar</button>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Visualizar</th>
-        <th scope="col">ID</th>
-        <th scope="col">Nome</th>
-        <th scope="col">Raça</th>
-        <th scope="col">Etiqueta</th>
-        <th scope="col">Idade</th>
-        <th scope="col">Sexo</th>
-        <th scope="col">Coleira</th>
-        <th scope="col" colspan="2" style="text-align: center;">Ações</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% animais.forEach(animal=> { %>
-      <tr>
-        <td><a href="#"><button class="btn btn-success"><i class="fa fa-eye" aria-hidden="true"></i></button></a></td>
-        <th scope="row"><%= animal.id %></th>
-        <td><%= animal.nome %></td>
-        <td><%= animal.raca %></td>
-        <td><%= animal.n_etiqueta %></td>
-        <td><%= animal.idade %> Meses</td>
-        <td><%= animal.sexo %></td>
-        <td>
-          <% if (animal.coleira == 1) { %>
-          <p>Ativo</p>
-          <%} if (animal.coleira == 0) { %>
-          <p>Inativo</p>
-          <%}%>
-        </td>
-        <td style="text-align: right;"><button class="btn btn-warning">Editar</button></td>
-        <td><a onclick="return confirm('Deseja mesmo realizar a exclução do animal: <%= animal.nome %>')" href="/animais/delete/<%= animal.id %>"><button class="btn btn-danger">Excluir</button></a></td>
-      </tr>
-      <% }) %>
-    </tbody>
-  </table>
-</div>
+<%- include('partials/header.ejs') %> <%- include('partials/navbar.ejs') %>
 
-<!-- Modal Adicionar Animal -->
-<div class="modal fade" id="AdicionarAnimalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Adicionar Novo Animal</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <form action="/animais/create" method="POST">
-      <div class="modal-body">
-            <label>Nome</label>
-              <input type="text" name="nome" placeholder="Nome do Animal" class="form-control" required>
+<h1>Dashboard do Sistema</h1>
+<canvas id="graficoAcessos" width="400" height="200"></canvas>
 
-            <label>Raça</label>
-              <input type="text" name="raca" placeholder="Raça do Animal" class="form-control" required>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // Pegando os dados do backend e transformando em JS puro
+  const dados = <%- JSON.stringify(dados) %>;
 
-            <label>Etiqueta</label>
-              <input type="text" name="etiqueta" placeholder="Etiqueta de Registro" class="form-control" required>
+  const ctx = document.getElementById('graficoAcessos').getContext('2d');
+  const grafico = new Chart(ctx, {
+      type: 'line',
+      data: {
+          labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex'],
+          datasets: [{
+              label: 'Acessos por dia',
+              data: dados.acessos,
+              borderColor: 'rgba(75, 192, 192, 1)',
+              tension: 0.2
+          }]
+      }
+  });
+</script>
 
-            <label>Idade</label>
-              <input type="text" name="idade" placeholder="Idade do animal" class="form-control" required>
-
-            <label>Sexo</label>
-              <input type="text" name="sexo" placeholder="Sexo do animal" class="form-control" required>
-
-            <label>Coleira</label>
-              <input type="text" name="coleira" placeholder="Número da Coleira" class="form-control" required>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="submit" class="btn btn-success">Adicionar</button>
-      </div>
-    </form>
-    </div>
-  </div>
-</div>
 <%- include('partials/footer.ejs') %>
