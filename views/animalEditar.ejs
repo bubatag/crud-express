@@ -1,0 +1,33 @@
+<%- include('partials/header.ejs') %> 
+<%- include('partials/navbar.ejs') %>
+<div class="container">
+    <div class="card">
+        <div class="card-header" style="background-color: white;">
+        <h5>Alterar Animal</h5>
+            <form action="/animais/update/<%= animal.id %>" method="POST">
+                <label>Nome: </label>
+                  <input type="text" name="nome" class="form-control" value="<%= animal.nome %>" required>
+
+                <label>Raça: </label>
+                  <input type="text" name="raca" class="form-control" value="<%= animal.raca %>" required>
+
+                <label>Etiqueta: </label>
+                  <input type="text" name="etiqueta" class="form-control" value="<%= animal.n_etiqueta %>" required>
+
+                <label>Idade: </label>
+                  <input type="text" name="idade" class="form-control" value="<%= animal.idade %>" required>
+
+                <label>Sexo: </label>
+                  <input type="text" name="sexo" class="form-control" value="<%= animal.sexo %>" required>
+
+                <label>Coleira: </label>
+                  <input type="text" name="coleira" class="form-control" value="<%= animal.coleira %>" required>
+                </div>
+                    <input type="hidden" name="id" value="<%= animal.id %>">
+                    <input type="submit" class="btn btn-success" value="Alterar" 
+                    onclick="return confirm('Confirma as alterações realizadas para o cliente <%= animal.nome %>?')">
+            </form>
+        </div>
+    </div>
+</div>
+<%- include('partials/footer.ejs') %>

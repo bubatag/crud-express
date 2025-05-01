@@ -1,0 +1,22 @@
+<%- include('partials/header.ejs') %> 
+<%- include('partials/navbar.ejs') %>
+<div class="container">
+    <div class="card">
+        <div class="card-header" style="background-color: white;">
+        <h5>Alterar Coleira</h5>
+            <form action="/coleiras/update/<%= coleira.id %>" method="POST">
+                <label>Nome: </label>
+                  <input type="text" name="n_coleira" class="form-control" value="<%= coleira.n_coleira %>" required>
+
+                <label>Raça: </label>
+                  <input type="text" name="ip" class="form-control" value="<%= coleira.ip %>" required>
+
+                </div>
+                    <input type="hidden" name="id" value="<%= coleira.id %>">
+                    <input type="submit" class="btn btn-success" value="Alterar" 
+                    onclick="return confirm('Confirma as alterações realizadas para o cliente <%= coleira.ip %>?')">
+            </form>
+        </div>
+    </div>
+</div>
+<%- include('partials/footer.ejs') %>
