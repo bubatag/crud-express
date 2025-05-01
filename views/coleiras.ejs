@@ -1,7 +1,7 @@
 <%- include('partials/header.ejs') %> 
 <%- include('partials/navbar.ejs') %>
 <div class="tabela-container" id="tabelas">
-  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#AdicionarColeiraModal">Adicionar</button>
+  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#AdicionarColeiraModal"><i class="fa fa-plus" style="margin-right: 5px;"></i>Adicionar</button>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -19,8 +19,8 @@
         <th scope="row"><%= coleira.id %></th>
         <td><%= coleira.n_coleira %></td>
         <td><%= coleira.ip %></td>
-        <td style="text-align: right;"><a href="/coleiras/editar/<%= coleira.id %>"><button class="btn btn-warning">Editar</button></a></td>
-        <td><a onclick="return confirm('Deseja mesmo realizar a exclução da coleira: <%= coleira.ip %>')" href="/coleiras/delete/<%= coleira.id %>"><button class="btn btn-danger">Excluir</button></a></td>
+        <td style="text-align: right;"><a href="/coleiras/editar/<%= coleira.id %>"><button class="btn btn-warning"><i class="fa fa-edit" style="margin-right: 5px;"></i>Editar</button></a></td>
+        <td><a onclick="return confirm('Deseja mesmo realizar a exclução da coleira: <%= coleira.ip %>')" href="/coleiras/delete/<%= coleira.id %>"><button class="btn btn-danger"><i class="fa fa-trash" style="margin-right: 5px;"></i>Excluir</button></a></td>
       </tr>
       <% }) %>
     </tbody>
