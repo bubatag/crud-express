@@ -1,10 +1,13 @@
-<%- include('partials/header.ejs') %> 
+<%- include('partials/header.ejs', { bodyClass: 'index-page' }) %>
 <%- include('partials/navbar.ejs') %>
+
+<div class="container justify-content-center align-items-center min-vh-100">
+<button type="button" class="btn btn-success" id="adicionar" data-toggle="modal" data-target="#AdicionarAnimalModal">Adicionar</button>
 <div class="tabela-container" id="tabelas">
-    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#AdicionarAnimalModal"><i class="fa fa-plus" style="margin-right: 5px;"></i>Adicionar</button>
-  <table class="table table-striped" style="margin-top: 25px;">
+   <button type="button" class="btn btn-success" data-toggle="modal" data-target="#AdicionarAnimalModal"><i class="fa fa-plus" style="margin-right: 5px;"></i>Adicionar</button>
+    <table class="table table" id="linhas">
     <thead>
-      <tr>
+      <tr id="titulo-tabela">
         <th>Visualizar</th>
         <th scope="col">ID</th>
         <th scope="col">Nome</th>
@@ -43,14 +46,15 @@
   </table>
 </div>
 
+
 <!-- Modal Adicionar Animal -->
 <div class="modal fade" id="AdicionarAnimalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
+  <div class="modal-dialog" id="modal-fora" role="document">
+    <div class="modal-content" id="modal-dentro">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Adicionar Novo Animal</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+          <span aria-hidden="true" id="x" >&times;</span>
         </button>
       </div>
       <form action="/animais/create" method="POST">
@@ -75,10 +79,14 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="submit" class="btn btn-success">Adicionar</button>
+        <button type="submit" class="btn btn-success" id="adicionar">Adicionar</button>
       </div>
     </form>
     </div>
   </div>
 </div>
+
+
+</div>
+
 <%- include('partials/footer.ejs') %>
