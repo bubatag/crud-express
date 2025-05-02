@@ -9,6 +9,7 @@ import AnimaisControllers from './controllers/AnimaisControllers.js'
 import connection from "./config/sequelize-config.js";
 import LoginController from "./controllers/LoginController.js";
 import ColeirasController from './controllers/ColeirasController.js';
+import IndexController from './controllers/IndexController.js';
 
 connection.authenticate().then(() => {
     console.log("Conexão com o banco de dados efetuada!");
@@ -22,7 +23,7 @@ app.get("/", (req, res) => {
 app.use("/", AnimaisControllers);
 app.use("/", LoginController);
 app.use("/", ColeirasController);
-
+app.use("/", IndexController);
 
 app.listen(8086, (error) => {
   if (error) {

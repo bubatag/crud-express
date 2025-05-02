@@ -27,10 +27,6 @@ html, body {
   transform: scale(1.1);
 }
 
-
-
-
-/* COMEÇA INDEX.EJS */
 tbody tr:nth-child(odd) {
     background-color: white;
   }
@@ -49,10 +45,7 @@ tbody tr:nth-child(odd) {
     padding: 25px;
     width: 100%;
     display: inline-block; /* Faz com que a "borda" fique justinha na tabela */
-    
   }
-
-
 
 
 #tabelas{
@@ -64,12 +57,9 @@ tbody tr:nth-child(odd) {
   width: 110%;
 }
 
-
 #linhas{
   background-color: #3c4d58;
 }
-
-
 
 /* Modal Adicionar Animal */
 #modal-fora{
@@ -87,11 +77,3 @@ tbody tr:nth-child(odd) {
   color: #06D001;
   text-shadow: 1px 1px 3px #000000;
 }
-
-
-
-
-
-/* ACABA INDEX.EJS */
-
-

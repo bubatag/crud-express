@@ -2,9 +2,8 @@
 <%- include('partials/navbar.ejs') %>
 
 <div class="container justify-content-center align-items-center min-vh-100">
-<button type="button" class="btn btn-success" id="adicionar" data-toggle="modal" data-target="#AdicionarAnimalModal">Adicionar</button>
+<button type="button" class="btn btn-success" id="adicionar" data-toggle="modal" data-target="#AdicionarAnimalModal"><i class="fa fa-plus" style="margin-right: 5px;"></i>Adicionar</button>
 <div class="tabela-container" id="tabelas">
-   <button type="button" class="btn btn-success" data-toggle="modal" data-target="#AdicionarAnimalModal"><i class="fa fa-plus" style="margin-right: 5px;"></i>Adicionar</button>
     <table class="table table" id="linhas">
     <thead>
       <tr id="titulo-tabela">
@@ -46,7 +45,6 @@
   </table>
 </div>
 
-
 <!-- Modal Adicionar Animal -->
 <div class="modal fade" id="AdicionarAnimalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" id="modal-fora" role="document">
@@ -85,8 +83,5 @@
     </div>
   </div>
 </div>
-
-
 </div>
-
 <%- include('partials/footer.ejs') %>
