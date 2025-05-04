@@ -1,0 +1,53 @@
+/* TABEL ALTERAR ANIMAL  */
+.card.bg-dark-custom {
+    background-color: #3c4d58;
+    color: #fff;
+  }
+
+  .bg-dark-custom input,
+  .bg-dark-custom label,
+  .bg-dark-custom h5 {
+    color: #fff;
+  }
+
+  .bg-dark-custom input.form-control {
+    background-color: #4a5c67;
+    border-color: #627783;
+    color: #fff;
+  }
+
+  #label-alterar{
+    margin-bottom: 2%;
+  }
+
+  /* fim alterar animal */
+
+
+
+
+
+
+
+  /* ALTERAR COLEIRA */
+
+  .card.bg-dark-custom-coleira {
+    background-color: #3C4D58;
+    background: #3C4D58;
+    border: solid 0px #ffffff48;
+    color: #fff;
+  }
+
+  .bg-dark-custom-coleira input,
+  .bg-dark-custom-coleira label,
+  .bg-dark-custom-coleira h5 {
+    color: #fff;
+  }
+
+  .bg-dark-custom-coleira input.form-control {
+    background-color: #4a5c67;
+    border-color: #627783;
+    color: #fff;
+  }
+
+
+  /* fim alterar coleira */

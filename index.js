@@ -22,6 +22,7 @@ app.get("/", (req, res) => {
 app.use("/", AnimaisControllers);
 app.use("/", LoginController);
 app.use("/", ColeirasController);
+app.use("/", ColeirasController);
 
 
 app.listen(8086, (error) => {

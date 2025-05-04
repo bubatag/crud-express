@@ -2,14 +2,13 @@
 <%- include('partials/navbar.ejs') %>
 
 <div class="container justify-content-center align-items-center min-vh-100">
-<button type="button" class="btn btn-success" id="adicionar" data-toggle="modal" data-target="#AdicionarAnimalModal">Adicionar</button>
+<button type="button" class="btn btn-success" id="adicionar" data-toggle="modal" data-target="#AdicionarAnimalModal"> <i class="fa fa-plus" style="margin-right: 5px;"></i> Adicionar animal </button> 
 <div class="tabela-container" id="tabelas">
-   <button type="button" class="btn btn-success" data-toggle="modal" data-target="#AdicionarAnimalModal"><i class="fa fa-plus" style="margin-right: 5px;"></i>Adicionar</button>
-    <table class="table table" id="linhas">
+    <table class="table bg-dark-custom table-striped">
     <thead>
-      <tr id="titulo-tabela">
+      <tr >
         <th>Visualizar</th>
-        <th scope="col">ID</th>
+        <th scope="col" >ID</th>
         <th scope="col">Nome</th>
         <th scope="col">Raça</th>
         <th scope="col">Etiqueta</th>
@@ -22,7 +21,7 @@
     <tbody>
       <% animais.forEach(animal=> { %>
       <tr>
-        <td><a href="#"><button class="btn btn-success"><i class="fa fa-eye" aria-hidden="true"></i></button></a></td>
+        <td><a href="#"><button class="btn btn-success" id="visualizar"><i class="fa fa-eye" aria-hidden="true"></i></button></a></td>
         <th scope="row"><%= animal.id %></th>
         <td><%= animal.nome %></td>
         <td><%= animal.raca %></td>
@@ -31,15 +30,15 @@
         <td><%= animal.sexo %></td>
         <td>
           <% if (animal.coleira == 1) { %>
-            <i class="fa fa-circle" style="margin-left: 18px; margin-top: 10px; color: #06D001;"></i>
+            <i class="fa fa-circle " style="margin-left: 20%; margin-top: 10%; color: #06D001;"></i>
           <%} else if (animal.coleira == 0) { %>
-            <i class="fa fa-circle" style="margin-left: 18px; margin-top: 10px; color: #D00801;"></i>
+            <i class="fa fa-circle " style="margin-left: 20%; margin-top: 10%; color: #D00801;"></i>
           <%} else if (animal.coleira == 2) { %>
-            <i class="fa fa-circle" style="margin-left: 18px; margin-top: 10px; color: #F2C200;"></i>
+            <i class="fa fa-circle " style="margin-left: 20%; margin-top: 10%; color: #F2C200;"></i>
           <%}%>
         </td>
-        <td style="text-align: right;"><a href="/animais/editar/<%= animal.id %>"><button class="btn btn-warning"><i class="fa fa-edit" style="margin-right: 5px;"></i>Editar</button></a></td>
-        <td><a onclick="return confirm('Deseja mesmo realizar a exclução do animal: <%= animal.nome %>')" href="/animais/delete/<%= animal.id %>"><button class="btn btn-danger"><i class="fa fa-trash" style="margin-right: 5px;"></i>Excluir</button></a></td>
+        <td style="text-align: right;" ><a href="/animais/editar/<%= animal.id %>"><button class="btn btn-warning " id="editar"><i class="fa fa-edit" style="margin-right: 5px;" ></i>Editar</button></a></td>
+        <td><a onclick="return confirm('Deseja mesmo realizar a exclução do animal: <%= animal.nome %>')" href="/animais/delete/<%= animal.id %>"><button class="btn btn-danger " id="excluir"><i class="fa fa-trash" style="margin-right: 5px;"></i>Excluir</button></a></td>
       </tr>
       <% }) %>
     </tbody>
@@ -60,25 +59,25 @@
       <form action="/animais/create" method="POST">
       <div class="modal-body">
             <label>Nome</label>
-              <input type="text" name="nome" placeholder="Nome do Animal" class="form-control" required>
+              <input type="text" name="nome" placeholder="Nome do Animal" class="form-control" required id="label-modal">
 
             <label>Raça</label>
-              <input type="text" name="raca" placeholder="Raça do Animal" class="form-control" required>
+              <input type="text" name="raca" placeholder="Raça do Animal" class="form-control" required id="label-modal">
 
             <label>Etiqueta</label>
-              <input type="text" name="etiqueta" placeholder="Etiqueta de Registro" class="form-control" required>
+              <input type="text" name="etiqueta" placeholder="Etiqueta de Registro" class="form-control" required id="label-modal">
 
             <label>Idade</label>
-              <input type="text" name="idade" placeholder="Idade do animal" class="form-control" required>
+              <input type="text" name="idade" placeholder="Idade do animal" class="form-control" required id="label-modal">
 
             <label>Sexo</label>
-              <input type="text" name="sexo" placeholder="Sexo do animal" class="form-control" required>
+              <input type="text" name="sexo" placeholder="Sexo do animal" class="form-control" required id="label-modal">
 
             <label>Coleira</label>
-              <input type="text" name="coleira" placeholder="Número da Coleira" class="form-control" required>
+              <input type="text" name="coleira" placeholder="Número da Coleira" class="form-control" required id="label-modal">
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="excluir">Fechar</button>
         <button type="submit" class="btn btn-success" id="adicionar">Adicionar</button>
       </div>
     </form>

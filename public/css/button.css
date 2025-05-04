@@ -1,15 +1,323 @@
-#adicionar{
-    background: radial-gradient(circle, #06D001 0%, #04A600 100%);
-    font-family: 'Lato', sans-serif;
-    color: #2F3E46;
-    font-weight: 700;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-     border: 0px solid #374751;
-     margin-bottom: 1%;
+#adicionar {
+  background: radial-gradient(circle, #06D001 0%, #04A600 100%);
+  font-family: 'Lato', sans-serif;
+  color: #2F3E46;
+  font-weight: 700;
+  box-shadow: 0 0.2em 0.6em rgba(0, 0, 0, 0.2);
+  border: 2px solid transparent;
+  margin-bottom: 1%;
+  padding: 0.75em 1.5em;
+  border-radius: 0.5em;
+  font-size: 1rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 3.5em;
+  box-sizing: border-box;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+#adicionar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px; /* Espessura da borda */
+  background: radial-gradient(circle, #90A955, #06D001);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0;
+}
+
+#adicionar:hover {
+  background: #2F3E46;
+  color: #fff;
+}
+
+#adicionar:hover::before {
+  opacity: 1;
 }
 
 
-#adicionar:hover {
-    background-color: #04A600; /* cor ligeiramente mais escura ou viva */
-    transform: scale(1.03);     /* leve aumento no tamanho */
-  }
+
+
+
+
+
+
+
+#editar {
+  background: radial-gradient(circle, #F2C200 0%, #C9A101 100%);
+  font-family: 'Lato', sans-serif;
+  color: #2F3E46;
+  box-shadow: 0 0.2em 0.6em rgba(0, 0, 0, 0.2);
+  border: 2px solid transparent;
+  border-radius: 0.5em;
+  font-size: 1rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 2.5em;
+  margin-left: 30%;
+  box-sizing: border-box;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+#editar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px; /* Espessura da borda */
+  background: radial-gradient(circle, #C9A101, #F2C200);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0;
+}
+
+#editar:hover {
+  background: #2F3E46;
+  color: #fff;
+}
+
+#editar:hover::before {
+  opacity: 1;
+}
+
+
+
+
+
+
+
+
+#excluir {
+  background: radial-gradient(circle, #f35966 0%, #d1404c 100%);
+  font-family: 'Lato', sans-serif;
+  color: #243036;
+  box-shadow: 0 0.2em 0.6em rgba(0, 0, 0, 0.2);
+  border: 2px solid transparent;
+  border-radius: 0.5em;
+  font-size: 1rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 2.5em;
+  box-sizing: border-box;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+#excluir::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px; /* Espessura da borda */
+  background: radial-gradient(circle, #D00801, #D64954);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0;
+}
+
+#excluir:hover {
+  background: #2F3E46;
+  color: #fff;
+}
+
+#excluir:hover::before {
+  opacity: 1;
+}
+
+
+
+
+
+
+
+
+#visualizar {
+  background: radial-gradient(circle, #06D001 0%, #04A600 100%);
+  font-family: 'Lato', sans-serif;
+  color: #243036;
+  box-shadow: 0 0.2em 0.6em rgba(0, 0, 0, 0.2);
+  border: 2px solid transparent;
+  border-radius: 0.5em;
+  font-size: 1rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 2.5em;
+  box-sizing: border-box;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+#visualizar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px; /* Espessura da borda */
+  background: radial-gradient(circle, #90A955, #06D001);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0;
+}
+
+#visualizar:hover {
+  background: #2F3E46;
+  color: #fff;
+}
+
+#visualizar:hover::before {
+  opacity: 1;
+}
+
+
+
+
+
+
+
+
+/* ALTERAR ANIMAL */
+#alterar-animal {
+  background: radial-gradient(circle, #06D001 0%, #04A600 100%);
+  font-family: 'Lato', sans-serif;
+  color: #2F3E46;
+  font-weight: 700;
+  box-shadow: 0 0.2em 0.6em rgba(0, 0, 0, 0.2);
+  border: 2px solid transparent;
+  margin-bottom: 1%;
+  padding: 0.75em 1.5em;
+  border-radius: 0.5em;
+  font-size: 1rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 3.5em;
+  box-sizing: border-box;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+#alterar-animal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px; /* Espessura da borda */
+  background: radial-gradient(circle, #90A955, #06D001);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0;
+}
+
+#alterar-animal:hover {
+  background: #2F3E46;
+  color: #fff;
+}
+
+#alterar-animal:hover::before {
+  opacity: 1;
+}
+
+
+/* ALTERAR COLEIRA */
+#alterar-coleira {
+  background: radial-gradient(circle, #06D001 0%, #04A600 100%);
+  font-family: 'Lato', sans-serif;
+  color: #2F3E46;
+  font-weight: 700;
+  box-shadow: 0 0.2em 0.6em rgba(0, 0, 0, 0.2);
+  border: 2px solid transparent;
+  padding: 0.75em 1.5em;
+  margin-top: 1%;
+  border-radius: 0.5em;
+  font-size: 1rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 3.5em;
+  box-sizing: border-box;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+#alterar-coleira::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px; /* Espessura da borda */
+  background: radial-gradient(circle, #90A955, #06D001);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0;
+}
+
+#alterar-coleira:hover {
+  background: #2F3E46;
+  color: #fff;
+}
+
+#alterar-coleira:hover::before {
+  opacity: 1;
+}

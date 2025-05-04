@@ -31,6 +31,9 @@ html, body {
 
 
 /* COMEÇA INDEX.EJS */
+
+
+/* TABELAS --------------------------- */
 tbody tr:nth-child(odd) {
     background-color: white;
   }
@@ -53,21 +56,42 @@ tbody tr:nth-child(odd) {
   }
 
 
-
-
 #tabelas{
   /* border: 2px solid #000000; */
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  background-color: #3c4d58;
+  background-color: #3C4D58;
   border: 2px solid #4f6c7e;
-  width: 110%;
+  width: 100%;
 }
 
 
-#linhas{
-  background-color: #3c4d58;
+
+
+.table.bg-dark-custom,
+.table.bg-dark-custom th,
+.table.bg-dark-custom td {
+  background-color: #3c4d58 !important;
+  color: #fff !important;
+  border-color: #495a63; /* opcional: bordas mais visíveis no fundo escuro */
 }
+
+
+
+/* Garante que as linhas tenham altura igual */
+tr {
+  height: 5vh;
+}
+
+/* Responsividade adicional: quebra de texto */
+td {
+  word-break: break-word;
+  vertical-align: middle !important;
+  min-height: 100px;
+}
+
+/* FECHA TABELA --------------------------- */
+
 
 
 
@@ -89,9 +113,46 @@ tbody tr:nth-child(odd) {
 }
 
 
+#label-modal{
+  margin-bottom: 3%;
+}
 
 
 
-/* ACABA INDEX.EJS */
+
+
+/* Modal Adicionar Coleira */
+#modal-fora-coleira{
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); 
+  border-radius: 10px; 
+  border: 2px solid #06D001;
+}
+
+#modal-dentro-coleira{
+  background-color: #3c4d58;
+  color: #fff;
+}
+
+#x{
+  color: #06D001;
+  text-shadow: 1px 1px 3px #000000;
+}
+
+
+#label-modal-coleira{
+  margin-bottom: 3%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
