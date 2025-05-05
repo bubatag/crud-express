@@ -48,14 +48,6 @@
   opacity: 1;
 }
 
-
-
-
-
-
-
-
-
 #editar {
   background: radial-gradient(circle, #F2C200 0%, #C9A101 100%);
   font-family: 'Lato', sans-serif;
@@ -103,13 +95,6 @@
 #editar:hover::before {
   opacity: 1;
 }
-
-
-
-
-
-
-
 
 #excluir {
   background: radial-gradient(circle, #f35966 0%, #d1404c 100%);
@@ -211,13 +196,6 @@
 #visualizar:hover::before {
   opacity: 1;
 }
-
-
-
-
-
-
-
 
 /* ALTERAR ANIMAL */
 #alterar-animal {
