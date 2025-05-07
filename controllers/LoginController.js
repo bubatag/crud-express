@@ -6,9 +6,9 @@ router.post("/login", async (req, res) => {
   const { inputEmail, inputPassword } = req.body;
 
   try {
-    const usuario = await Usuario.findOne({ where: { user: inputEmail } });
+    const usuario = await Usuario.findOne({ where: { email: inputEmail } });
 
-    if (usuario && usuario.password === inputPassword) {
+    if (usuario && usuario.senha === inputPassword) {
       res.redirect("/animais");
     } else {
       res.send("Usuário ou senha inválidos");

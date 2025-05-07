@@ -2,12 +2,12 @@ import Animais from './animais.js';
 import Dados from './dados.js';
 
 Animais.hasOne(Dados, {
-    foreignKey: 'id_bubalino',
+    foreignKey: 'idbubalino',
     as: 'dados'
   });
   
   Dados.belongsTo(Animais, {
-    foreignKey: 'id_bubalino',
+    foreignKey: 'idbubalino',
     as: 'animal'
   });  
 

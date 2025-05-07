@@ -1,9 +1,9 @@
 <script>
     document.querySelectorAll(".visualizar-btn").forEach(button => {
       button.addEventListener("click", () => {
-        const id = button.getAttribute("data-id");
+        const idbubalino = button.getAttribute("data-id");
   
-        fetch(`/animais/visualizar/${id}`)
+        fetch(`/animais/visualizar/${idbubalino}`)
           .then(res => res.json())
           .then(data => {
             document.getElementById("modalNome").innerText = data.nome || '';

@@ -5,7 +5,7 @@ const connection = new Sequelize({
   host: "localhost",
   username: "root",
   password: "",
-  database: "bubatag",
+  database: "bubatag_ofc",
   timezone: "-03:00",
 });
 export default connection;
