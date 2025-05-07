@@ -1,25 +1,34 @@
 
 /* COMEÇA LOGIN.EJS */
-.login-page {
+  .login-page {
     min-height: 100%;
     background-repeat: no-repeat;
     background: radial-gradient(circle, #40555f  30%, #28353b 100%);
+    box-sizing: border-box;
+    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px; /* menor que o 3.5% para não prejudicar o card em telas pequenas */
-    box-sizing: border-box;
-  }
-  
-  .card-container {
-    width: 100%;
-    max-width: 450px;
-  }
+    height: 100vh;
+    overflow: hidden; /* ← ADICIONADO para remover o scroll causado pelos elementos decorativos */
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
   
   .card-container.card {
-    max-width: 450px;
-    padding: 70px 40px;
-    border-radius: 5%;
+    max-width: 500px;
+    min-height: 60vh; /* ou outro valor que funcione bem visualmente */
+    padding: 2%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   
   .btn {
@@ -33,13 +42,10 @@
   
   .card {
       background-color: #F7F7F7;
-      padding: 20px 25px 30px;
-      margin: 0 auto 25px;
-      margin-top: 50px;
+      justify-self: center;
       -moz-border-radius: 2px;
       -webkit-border-radius: 2px;
       border-radius: 2px;
-  
   }
   
   .profile-img-card {
@@ -73,7 +79,7 @@
   }
   
   .custom-card {
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -157,6 +163,10 @@
       box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
   }
   
+
+
+
+
   .btn.btn-signin {
     background: radial-gradient(circle, #04b301 30%, #026600 100%);
       /* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
@@ -174,11 +184,34 @@
       transition: all 0.218s;
   }
   
-  .btn.btn-signin:hover,
-  .btn.btn-signin:active,
-  .btn.btn-signin:focus {
-      background-color: #04b301;
+  #entrar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px; /* Espessura da borda */
+    background: radial-gradient(circle, #90A955, #06D001);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: -1;
+    transition: opacity 0.2s ease-in-out;
+    opacity: 0;
   }
+  
+  #entrar:hover {
+    background: #2F3E46;
+    color: #fff;
+  }
+  
+  #entrar:hover::before {
+    opacity: 1;
+  }
+
+
+
   
   /* ESQUEECEU A SENHA */
   .forgot-password {

@@ -10,9 +10,6 @@
   border-radius: 0.5em;
   font-size: 1rem;
   text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: auto;
   height: 3.5em;
   box-sizing: border-box;
@@ -68,6 +65,7 @@
   position: relative;
   z-index: 1;
   transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+  
 }
 
 #editar::before {
