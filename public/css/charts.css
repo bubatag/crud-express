@@ -1,36 +1,56 @@
 .container {
-    padding: 15px !important;
-    margin-top: -20px;
-    width: 1200px;
-  }
+  padding: 15px !important;
+  margin-top: -20px;
+  width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  .top-cards {
-    display: flex !important;
-    gap: 20px !important;
-    margin-bottom: 20px !important;
-  }
+.top-cards {
+  display: flex !important;
+  gap: 20px !important;
+  margin-bottom: 20px !important;
+  justify-content: center;
+}
 
-  .card {
-    flex: 1 !important;
-    height: 230px !important;
-    border-radius: 8px !important;
-  }
+.card {
+  flex: 1 ;
+  height: 230px ;
+  border-radius: 8px ;
+  min-width: 300px;
+  text-align: center;
+}
 
-  .card1 { background-color: #ffb3b3 !important; }
-  .card2 { background-color: #b3d9ff !important; }
-  .card3 { background-color: #b3ffe0 !important; }
+.card1 { background-color: #ffb3b3 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); 
+  border-radius: 10px; 
+  border: 10px solid #06D001 !important;
+ }
+.card2 { background-color: #b3d9ff !important; 
+}
+.card3 { background-color: #b3ffe0 !important; 
+}
 
-  .middle-section {
-    display: flex;
-    gap: 20px;
-  }
+.middle-section {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 10px;
+}
 
-  .left-graph,
-  .right-graph {
-    flex: 1;
-    height: 400px;
-    border-radius: 8px;
-  }
+.left-graph,
+.right-graph {
+  flex: 1;
+  height: 400px;
+  border-radius: 8px;
+}
 
-  .left-graph { background-color: #e6ccff; }
-  .right-graph { background-color: #ffffb3; }
+.left-graph {
+  background-color: #e6ccff;
+}
+
+.right-graph {
+  background-color: #ffffb3;
+}

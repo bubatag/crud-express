@@ -21,7 +21,14 @@
         <td><%= coleira.n_coleira %></td>
         <td><%= coleira.ip %></td>
         <td style="text-align: right;"><button class="btn btn-warning" id="editar"><a style="text-decoration: none; color: #243036;" href="/coleiras/editar/<%= coleira.id %>"><i class="fa fa-edit" style="margin-right: 5px;"></i>Editar</a></button></td>
-        <td><button class="btn btn-danger" id="excluir"><a style="text-decoration: none; color: #243036;" onclick="return confirm('Deseja mesmo realizar a exclução da coleira: <%= coleira.ip %>')" href="/coleiras/delete/<%= coleira.id %>"><i class="fa fa-trash" style="margin-right: 5px;"></i>Excluir</a></button></td>
+        <td>  
+          <button class="btn btn-danger" id="excluir">  
+          <a style="text-decoration: none; color: #243036;" onclick="return confirm('Deseja mesmo realizar a exclução da coleira: <%= coleira.ip %>')" href="/coleiras/delete/<%= coleira.id %>">
+            <i class="fa fa-trash" style="margin-right: 5px;"></i>
+            Excluir
+          </a>
+        </button>
+      </td>
       </tr>
       <% }) %>
     </tbody>

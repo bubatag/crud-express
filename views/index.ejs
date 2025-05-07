@@ -1,55 +1,60 @@
 <%- include('partials/navbar.ejs') %>
 <%- include('partials/header.ejs') %> 
 </head>
-<body>
+
+<body style="font-family: 'Lato', sans-serif;">
   <div class="container">
+
     <!-- Cards do topo -->
     <div class="top-cards">
       <div class="card card1">
         <h2>Total de Animais</h2>
-          <p><strong><%= totalAnimais %></strong></p>
+        <p><strong><%= totalAnimais %></strong></p>
       </div>
       <div class="card card2">
         <h2>Temperatura Média</h2>
-          <p><strong><%= mediaTemperatura %> °C</strong></p>
+        <p><strong><%= mediaTemperatura %> °C</strong></p>
       </div>
       <div class="card card3">
         <h2>Total de Coleiras</h2>
-          <p><strong><%= totalColeiras %></strong></p>
+        <p><strong><%= totalColeiras %></strong></p>
       </div>
     </div>
 
+    <!-- Gráficos -->
     <div class="middle-section">
       <div class="left-graph">
         <canvas id="multiAxisChart" width="400"></canvas>
         <script>
           const ctx = document.getElementById('multiAxisChart');
-        
           new Chart(ctx, {
             type: 'line',
             data: {
               labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-              datasets: [{
-                label: 'Temperatura (°C)',
-                data: [36.5, 37.0, 38.2, 36.9, 37.4, 36.7],
-                yAxisID: 'y1',
-                borderColor: 'rgb(255, 99, 132)',
-                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                tension: 0.3
-              }, {
-                label: 'Batimentos (bpm)',
-                data: [70, 72, 74, 73, 75, 71],
-                yAxisID: 'y2',
-                borderColor: 'rgb(54, 162, 235)',
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                tension: 0.3
-              }]
+              datasets: [
+                {
+                  label: 'Temperatura (°C)',
+                  data: [36.5, 37.0, 38.2, 36.9, 37.4, 36.7],
+                  yAxisID: 'y1',
+                  borderColor: 'rgb(255, 99, 132)',
+                  backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                  tension: 0.3
+                },
+                {
+                  label: 'Batimentos (bpm)',
+                  data: [70, 72, 74, 73, 75, 71],
+                  yAxisID: 'y2',
+                  borderColor: 'rgb(54, 162, 235)',
+                  backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                  tension: 0.3
+                }
+              ]
             },
             options: {
               responsive: true,
               interaction: {
                 mode: 'index',
-                intersect: false,
+                intersect: false
               },
               stacked: false,
               plugins: {
@@ -65,7 +70,7 @@
                   title: {
                     display: true,
                     text: 'Temperatura (°C)'
-                  },
+                  }
                 },
                 y2: {
                   type: 'linear',
@@ -75,8 +80,8 @@
                     text: 'Batimentos (bpm)'
                   },
                   grid: {
-                    drawOnChartArea: false,
-                  },
+                    drawOnChartArea: false
+                  }
                 }
               }
             }
@@ -86,4 +91,6 @@
       <div class="right-graph"></div>
     </div>
   </div>
-<%- include('partials/footer.ejs') %>
+
+  <%- include('partials/footer.ejs') %>
+</body>

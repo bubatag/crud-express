@@ -45,7 +45,15 @@
           <%}%>
         </td>
         <td style="text-align: right;" ><a href="/animais/editar/<%= animal.id %>" style="text-decoration: none;"><button class="btn btn-warning " id="editar"><i class="fa fa-edit" style="margin-right: 5px;" ></i>Editar</button></a></td>
-        <td><a style="text-decoration: none;" onclick="return confirm('Deseja mesmo realizar a exclução do animal: <%= animal.nome %>')" href="/animais/delete/<%= animal.id %>"><button class="btn btn-danger " id="excluir"><i class="fa fa-trash" style="margin-right: 5px;"></i>Excluir</button></a></td>
+        <td>
+          <a style="text-decoration: none;" onclick="return confirm('Deseja mesmo realizar a exclução do animal: <%= animal.nome %>')" href="/animais/delete/<%= animal.id %>">
+            <button class="btn btn-danger " id="excluir">
+              <i class="fa fa-trash" style="margin-right: 5px;">
+              </i>
+              Excluir
+            </button>
+          </a>
+        </td>
       </tr>
       <% }) %>
     </tbody>
