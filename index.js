@@ -10,6 +10,7 @@ import connection from "./config/sequelize-config.js";
 import LoginController from "./controllers/LoginController.js";
 import ColeirasController from './controllers/ColeirasController.js';
 import IndexController from './controllers/IndexController.js';
+import './models/associations.js';
 
 connection.authenticate().then(() => {
     console.log("Conexão com o banco de dados efetuada!");

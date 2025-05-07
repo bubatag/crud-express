@@ -1,6 +1,7 @@
 import express from "express";
 const router = express.Router();
 import Animais from "../models/animais.js";
+import Dados from "../models/dados.js";
 
 // SELECT
 router.get("/animais", function (req, res) {
@@ -24,7 +25,6 @@ router.get("/animais/delete/:id", (req, res) => {
     },
   })
     .then(() => {
-      console.log("Cliente Excluido com Sucesso!");
       res.redirect("/animais");
     })
     .catch((error) => {
@@ -50,7 +50,6 @@ router.post("/animais/create", (req, res) => {
     coleira: coleira,
   })
     .then(() => {
-      console.log("Registro efetuado com sucesso!");
       res.redirect("/animais");
     })
     .catch((error) => {
@@ -89,6 +88,28 @@ router.post("/animais/update/:id", (req,res) => {
   { where: {id: id}}).then(() => {
     res.redirect("/animais");
   });
+});
+
+// VISUALIZAÇÃO INDIVIDUAL
+router.get("/animais/visualizar/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const animal = await Animais.findByPk(id, {
+      include: {
+        model: Dados,
+        as: "dados",
+      }
+    });
+
+    if (!animal) {
+      return res.status(404).json({ error: "Animal não encontrado" });
+    }
+
+    res.json(animal);
+  } catch (err) {
+    console.error("Erro ao buscar animal:", err);
+    res.status(500).json({ error: "Erro interno ao buscar animal" });
+  }
 });
 
 export default router;

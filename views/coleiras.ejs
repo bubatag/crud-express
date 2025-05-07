@@ -17,12 +17,11 @@
     <tbody>
       <% coleiras.forEach(coleira=> { %>
       <tr>
-        <td><a href="#" style="text-decoration: none;"><button class="btn btn-success" id="visualizar"><i class="fa fa-eye" aria-hidden="true"></i></button></a></td>
         <th scope="row"><%= coleira.id %></th>
         <td><%= coleira.n_coleira %></td>
         <td><%= coleira.ip %></td>
-        <td style="text-align: right;"><a style="text-decoration: none;" href="/coleiras/editar/<%= coleira.id %>"><button class="btn btn-warning" id="editar"><i class="fa fa-edit" style="margin-right: 5px;"></i>Editar</button></a></td>
-        <td><a style="text-decoration: none;" onclick="return confirm('Deseja mesmo realizar a exclução da coleira: <%= coleira.ip %>')" href="/coleiras/delete/<%= coleira.id %>"><button class="btn btn-danger" id="excluir"><i class="fa fa-trash" style="margin-right: 5px;"></i>Excluir</button></a></td>
+        <td style="text-align: right;"><button class="btn btn-warning" id="editar"><a style="text-decoration: none; color: #243036;" href="/coleiras/editar/<%= coleira.id %>"><i class="fa fa-edit" style="margin-right: 5px;"></i>Editar</a></button></td>
+        <td><button class="btn btn-danger" id="excluir"><a style="text-decoration: none; color: #243036;" onclick="return confirm('Deseja mesmo realizar a exclução da coleira: <%= coleira.ip %>')" href="/coleiras/delete/<%= coleira.id %>"><i class="fa fa-trash" style="margin-right: 5px;"></i>Excluir</a></button></td>
       </tr>
       <% }) %>
     </tbody>

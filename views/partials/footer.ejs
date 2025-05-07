@@ -1,3 +1,23 @@
+<script>
+    document.querySelectorAll(".visualizar-btn").forEach(button => {
+      button.addEventListener("click", () => {
+        const id = button.getAttribute("data-id");
+  
+        fetch(`/animais/visualizar/${id}`)
+          .then(res => res.json())
+          .then(data => {
+            document.getElementById("modalNome").innerText = data.nome || '';
+            document.getElementById("modalRaca").innerText = data.raca || '';
+            document.getElementById("modalIdade").innerText = data.idade || '';
+            document.getElementById("modalSexo").innerText = data.sexo || '';
+            document.getElementById("modalTemperatura").innerText = data.dados?.temperatura || 'Sem dados';
+            document.getElementById("modalBatimento").innerText = data.dados?.batimento_cardiaco || 'Sem dados';
+  
+            $('#modalVisualizacao').modal('show');
+          });
+      });
+    });
+  </script>  
 </body>
 <script>
 $( document ).ready(function() {
