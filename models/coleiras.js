@@ -14,16 +14,12 @@ const Coleiras = connection.define('coleiras', {
     },
     coleira_localizacao: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
     },
     ip: {
         type: Sequelize.STRING,
         allowNull: false
-    },
-    idusuario: {
-        type: Sequelize.INTEGER,
-        allowNull: true
-    },
+    }
 }, {
     timestamps: false // Desativa createdAt e updatedAt
   });
