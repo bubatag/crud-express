@@ -83,6 +83,7 @@
   z-index: -1;
   transition: opacity 0.2s ease-in-out;
   opacity: 0;
+  color: #fff;
 }
 
 #editar:hover {
@@ -92,6 +93,7 @@
 
 #editar:hover::before {
   opacity: 1;
+  color: #fff;
 }
 
 #excluir {
@@ -121,7 +123,7 @@
   inset: 0;
   border-radius: inherit;
   padding: 2px; /* Espessura da borda */
-  background: radial-gradient(circle, #D00801, #D64954);
+  background: radial-gradient(circle, #d11a13, #D64954);
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
@@ -130,6 +132,7 @@
   z-index: -1;
   transition: opacity 0.2s ease-in-out;
   opacity: 0;
+  color: #fff; 
 }
 
 #excluir:hover {
@@ -139,6 +142,7 @@
 
 #excluir:hover::before {
   opacity: 1;
+  color: #fff;
 }
 
 
