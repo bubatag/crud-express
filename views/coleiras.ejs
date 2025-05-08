@@ -7,9 +7,9 @@
   <table class="table bg-dark-custom table-striped">
     <thead>
       <tr>
-        <th>Visualizar</th>
         <th scope="col">ID</th>
         <th scope="col">Nº Etiqueta</th>
+        <th scope="col">Localização</th>
         <th scope="col">IP</th>
         <th scope="col" colspan="2" style="text-align: center;">Ações</th>
       </tr>
@@ -17,26 +17,18 @@
     <tbody>
       <% coleiras.forEach(coleira=> { %>
       <tr>
-        <th scope="row"><%= coleira.id %></th>
+        <td><strong><%= coleira.idcoleira %></strong></td>
         <td><%= coleira.n_coleira %></td>
+        <td><%= coleira.coleira_localizacao %></td>
         <td><%= coleira.ip %></td>
-        <td style="text-align: right;"><button class="btn btn-warning" id="editar"><a style="text-decoration: none; color: #243036;" href="/coleiras/editar/<%= coleira.id %>"><i class="fa fa-edit" style="margin-right: 5px;"></i>Editar</a></button></td>
-        <td>  
-          <button class="btn btn-danger" id="excluir">  
-          <a style="text-decoration: none; color: #243036;" onclick="return confirm('Deseja mesmo realizar a exclução da coleira: <%= coleira.ip %>')" href="/coleiras/delete/<%= coleira.id %>">
-            <i class="fa fa-trash" style="margin-right: 5px;"></i>
-            Excluir
-          </a>
-        </button>
-      </td>
+        <td style="text-align: right;"><button class="btn btn-warning" id="editar"><a style="text-decoration: none; color: #243036;" href="/coleiras/editar/<%= coleira.idcoleira %>"><i class="fa fa-edit"></i>Editar</a></button></td>
+        <td><button class="btn btn-danger" id="excluir"><a style="text-decoration: none; color: #243036;" onclick="return confirm('Deseja mesmo realizar a exclução da coleira: <%= coleira.n_coleira %>')" href="/coleiras/delete/<%= coleira.idcoleira %>"><i class="fa fa-trash" style="margin-right: 5px;"></i>Excluir</a></button></td>
       </tr>
       <% }) %>
     </tbody>
   </table>
   </div>
 </div>
-
-
 
 <!-- Modal Adicionar Animal -->
 <div class="modal fade" id="AdicionarColeiraModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

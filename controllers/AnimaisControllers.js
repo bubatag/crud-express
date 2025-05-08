@@ -18,10 +18,10 @@ router.get("/animais", function (req, res) {
 
 // DELETE
 router.get("/animais/delete/:id", (req, res) => {
-  const id = req.params.id;
+  const idbubalino = req.params.id;
   Animais.destroy({
     where: {
-      id: id,
+      idbubalino: idbubalino,
     },
   })
     .then(() => {
@@ -36,18 +36,18 @@ router.get("/animais/delete/:id", (req, res) => {
 router.post("/animais/create", (req, res) => {
   const nome = req.body.nome;
   const raca = req.body.raca;
-  const etiqueta = req.body.etiqueta;
+  const n_etiqueta = req.body.etiqueta;
   const idade = req.body.idade;
   const sexo = req.body.sexo;
-  const coleira = req.body.coleira;
+  const idcoleira = req.body.coleira;
 
   Animais.create({
     nome: nome,
     raca: raca,
-    n_etiqueta: etiqueta,
+    n_etiqueta: n_etiqueta,
     idade: idade,
     sexo: sexo,
-    coleira: coleira,
+    idcoleira: idcoleira,
   })
     .then(() => {
       res.redirect("/animais");
@@ -60,8 +60,8 @@ router.post("/animais/create", (req, res) => {
 
 // PAGE UPDATE
 router.get("/animais/editar/:id", (req,res) => {
-  const id = req.params.id;
-  Animais.findByPk(id).then((animal) => {
+  const idbubalino = req.params.id;
+  Animais.findByPk(idbubalino).then((animal) => {
     res.render("animalEditar", {
       animal : animal,
     });
@@ -69,32 +69,32 @@ router.get("/animais/editar/:id", (req,res) => {
 });
 
 // UPDATE 
-router.post("/animais/update/:id", (req,res) => {
+router.post("/animais/update/:idbubalino", (req,res) => {
   const id = req.body.id;
   const nome = req.body.nome;
   const raca = req.body.raca;
-  const etiqueta = req.body.etiqueta;
+  const n_etiqueta = req.body.etiqueta;
   const idade = req.body.idade;
   const sexo = req.body.sexo;
-  const coleira = req.body.coleira;
+  const idcoleira = req.body.idcoleira;
   Animais.update({
     nome: nome,
     raca: raca,
-    n_etiqueta: etiqueta,
+    n_etiqueta: n_etiqueta,
     idade: idade,
     sexo: sexo,
-    coleira: coleira,
+    idcoleira: idcoleira,
   },
-  { where: {id: id}}).then(() => {
+  { where: {idbubalino: id}}).then(() => {
     res.redirect("/animais");
   });
 });
 
 // VISUALIZAÇÃO INDIVIDUAL
-router.get("/animais/visualizar/:id", async (req, res) => {
-  const id = req.params.id;
+router.get("/animais/visualizar/:idbubalino", async (req, res) => {
+  const idbubalino = req.params.idbubalino;
   try {
-    const animal = await Animais.findByPk(id, {
+    const animal = await Animais.findByPk(idbubalino, {
       include: {
         model: Dados,
         as: "dados",

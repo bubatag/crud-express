@@ -2,17 +2,23 @@ import Sequelize from "sequelize";
 import connection from "../config/sequelize-config.js";
 
 const Animais = connection.define('bubalinos', {
+    idbubalino: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        primaryKey: true,
+        autoIncrement: true
+    },
     nome: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: false
     },
     raca: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: false
     },
     n_etiqueta: {
-        type: Sequelize.INTEGER,
-        allowNull: true
+        type: Sequelize.STRING,
+        allowNull: false
     },
     idade: {
         type: Sequelize.INTEGER,
@@ -20,12 +26,18 @@ const Animais = connection.define('bubalinos', {
     },
     sexo: {
         type: Sequelize.STRING,
+        allowNull: false
+    },
+    idcoleira: {
+        type: Sequelize.INTEGER,
         allowNull: true
     },
-    coleira: {
-        type: Sequelize.BOOLEAN,
+    idusuario: {
+        type: Sequelize.INTEGER,
         allowNull: true
-    },
-});
+    }
+}, {
+    timestamps: false // Desativa createdAt e updatedAt
+  });
 Animais.sync({force:false});
 export default Animais;

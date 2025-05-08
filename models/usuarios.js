@@ -2,20 +2,24 @@ import Sequelize from "sequelize";
 import connection from "../config/sequelize-config.js";
 
 const Usuario = connection.define("usuarios", {
-  id: {
+  idusuario: {
     type: Sequelize.INTEGER,
     primaryKey: true,
     autoIncrement: true
   },
-  name: {
+  nome: {
     type: Sequelize.STRING,
     allowNull: false
   },
-  user: {
+  email: {
     type: Sequelize.STRING,
     allowNull: false
   },
-  password: {
+  senha: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  ccir: {
     type: Sequelize.STRING,
     allowNull: false
   }

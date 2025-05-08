@@ -4,7 +4,7 @@ import Coleiras from "../models/coleiras.js";
 
 // SELECT
 router.get("/coleiras", function (req, res) {
-    Coleiras.findAll()
+  Coleiras.findAll()
     .then((coleiras) => {
       res.render("coleiras", {
         coleiras: coleiras,
@@ -16,11 +16,11 @@ router.get("/coleiras", function (req, res) {
 });
 
 // DELETE
-router.get("/coleiras/delete/:id", (req, res) => {
-  const id = req.params.id;
+router.get("/coleiras/delete/:idcoleira", (req, res) => {
+  const id = req.params.idcoleira;
   Coleiras.destroy({
     where: {
-      id: id,
+      idcoleira: id,
     },
   })
     .then(() => {
@@ -47,27 +47,28 @@ router.post("/coleiras/create", (req, res) => {
     });
 });
 
-
 // PAGE UPDATE
-router.get("/coleiras/editar/:id", (req,res) => {
-  const id = req.params.id;
+router.get("/coleiras/editar/:idcoleira", (req, res) => {
+  const id = req.params.idcoleira;
   Coleiras.findByPk(id).then((coleira) => {
     res.render("coleiraEditar", {
-        coleira : coleira,
+      coleira: coleira,
     });
   });
 });
 
-// UPDATE 
-router.post("/coleiras/update/:id", (req,res) => {
-    const id = req.body.id;
-    const n_coleira = req.body.n_coleira;
-    const ip = req.body.ip;
-  Coleiras.update({
-    n_coleira: n_coleira,
-    ip: ip,
-  },
-  { where: {id: id}}).then(() => {
+// UPDATE
+router.post("/coleiras/update/:id", (req, res) => {
+  const id = req.body.id;
+  const n_coleira = req.body.n_coleira;
+  const ip = req.body.ip;
+  Coleiras.update(
+    {
+      n_coleira: n_coleira,
+      ip: ip,
+    },
+    { where: { idcoleira: id } }
+  ).then(() => {
     res.redirect("/coleiras");
   });
 });
