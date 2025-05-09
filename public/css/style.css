@@ -4,8 +4,6 @@ html, body {
   padding-top: 0;
 }
 
-
-
 /* NAVBAR */
 #navbar {
  background-color: #40555F;
@@ -37,15 +35,10 @@ html, body {
   filter: brightness(1.4) drop-shadow(0 0 0px #06D001);
 }
 
-
-
 .nav-item{
   color: white;
   font-weight: bold;
 }
-
-
-
 
 #nav-link {
  
@@ -62,9 +55,6 @@ html, body {
   /* filter: brightness(1.0) drop-shadow(0 0 0px #06D001); */
 }
 
-
-
-
 /* COMEÇA INDEX.EJS */
 tbody tr:nth-child(odd) {
     background-color: white;
@@ -79,16 +69,14 @@ tbody tr:nth-child(odd) {
     background-color: #90A955;
   }
 
-  /*---------------------------------------------------------------*/
+/*---------------------------------------------------------------*/
 
-
-  .tabela-container {
+.tabela-container {
     background-color: #374751;
     padding: 2%;
     width: 100%;
     display: inline-block; /* Faz com que a "borda" fique justinha na tabela */   
-  }
-
+}
 
 #tabelas{
   /* border: 2px solid #000000; */
@@ -96,7 +84,6 @@ tbody tr:nth-child(odd) {
   border-radius: 10px;
   background-color: #3C4D58;
   border: 2px solid #4f6c7e;
-  width: 100%;
 }
 
 #linhas{
