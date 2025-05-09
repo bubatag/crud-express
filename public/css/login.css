@@ -1,4 +1,3 @@
-
 /* COMEÇA LOGIN.EJS */
   .login-page {
     min-height: 100%;
@@ -13,22 +12,21 @@
     overflow: hidden; /* ← ADICIONADO para remover o scroll causado pelos elementos decorativos */
 }
 
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
+  .container-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
 
-  
   .card-container.card {
     max-width: 500px;
-    min-height: 60vh; /* ou outro valor que funcione bem visualmente */
-    padding: 2%;
-
+    min-height: 60vh;
+    padding: 5%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border-radius: 4%;
   }
   
   .btn {
@@ -163,13 +161,8 @@
       box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
   }
   
-
-
-
-
   .btn.btn-signin {
-    background: radial-gradient(circle, #04b301 30%, #026600 100%);
-      /* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
+      background: radial-gradient(circle, #04b301 30%, #026600 100%);
       padding: 0px;
       font-weight: 700;
       font-size: 14px;
@@ -210,9 +203,6 @@
     opacity: 1;
   }
 
-
-
-  
   /* ESQUEECEU A SENHA */
   .forgot-password {
       color: #1DFF18;
