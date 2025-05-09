@@ -26,7 +26,7 @@ include('partials/navbar.ejs') %>
           <th scope="col">Etiqueta</th>
           <th scope="col">Idade</th>
           <th scope="col">Sexo</th>
-          <th scope="col">Coleira</th>
+          <th scope="col">Localização</th>
           <th scope="col" colspan="2" style="text-align: center">Ações</th>
         </tr>
       </thead>
@@ -45,24 +45,24 @@ include('partials/navbar.ejs') %>
           <td><%= animal.idbubalino %></td>
           <td><%= animal.nome %></td>
           <td><%= animal.raca %></td>
-          <td><%= animal.n_etiqueta %></td>
+          <td><strong><%= animal.n_etiqueta %></strong></td>
           <td><%= animal.idade %> Meses</td>
           <td><%= animal.sexo %></td>
           <td>
             <% if (animal.idcoleira == 1) { %>
             <i
               class="fa fa-circle"
-              style="margin-left: 20%; margin-top: 10%; color: #06d001"
+              style="margin-left: 30%; margin-top: 10%; color: #06d001"
             ></i>
             <%} else if (animal.idcoleira == 0) { %>
             <i
               class="fa fa-circle"
-              style="margin-left: 20%; margin-top: 10%; color: #d00801"
+              style="margin-left: 30%; margin-top: 10%; color: #d00801"
             ></i>
             <%} else if (animal.idcoleira == 2) { %>
             <i
               class="fa fa-circle"
-              style="margin-left: 20%; margin-top: 10%; color: #f2c200"
+              style="margin-left: 30%; margin-top: 10%; color: #f2c200"
             ></i>
             <%}%>
           </td>
@@ -211,9 +211,14 @@ include('partials/navbar.ejs') %>
     <div class="modal-content p-3">
       <div class="modal-header">
         <h5 class="modal-title">Detalhes do Animal</h5>
-        <button type="button" class="close" data-dismiss="modal">
-          <span aria-hidden="true">&times;</span>
-        </button>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true" id="x">&times;</span>
+          </button>
       </div>
       <div class="modal-body">
         <p><strong>Nome:</strong> <span id="modalNome"></span></p>
