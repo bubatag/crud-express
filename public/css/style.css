@@ -5,12 +5,16 @@ html, body {
 }
 
 
+body {
+  padding-top: 12vh; /* igual à altura da navbar */
+}
+
 
 /* NAVBAR */
 #navbar {
  background-color: #40555F;
  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
- position: sticky;
+ position: fixed;
  top: 0; 
  width: 100%; 
  z-index: 2;
@@ -97,6 +101,7 @@ tbody tr:nth-child(odd) {
   background-color: #3C4D58;
   border: 2px solid #4f6c7e;
   width: 100%;
+  color: #fff;
 }
 
 #linhas{
@@ -121,6 +126,14 @@ td {
 }
 /* FECHA TABELA --------------------------- */
 
+
+
+
+
+
+
+
+
 /* Modal Adicionar Animal */
 #modal-fora{
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); 
@@ -140,6 +153,19 @@ td {
 #label-modal{
   margin-bottom: 3%;
 }
+
+/* Modal Visualizar animal */
+#vizualizar-animal{
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #3C4D58;
+  border: 2px solid #06D001;
+  width: 100%;
+  color: #fff;
+} 
+
+
+
 
 /* Modal Adicionar Coleira */
 #modal-fora-coleira{
@@ -162,4 +188,15 @@ td {
 #label-modal-coleira{
   margin-bottom: 3%;
 }
+
+
 /* ACABA INDEX.EJS */
+
+
+
+
+
+
+
+
+

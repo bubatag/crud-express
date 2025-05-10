@@ -44,8 +44,8 @@
             <i class="fa fa-circle " style="margin-left: 20%; margin-top: 10%; color: #F2C200;"></i>
           <%}%>
         </td>
-        <td style="text-align: right;" ><a href="/animais/editar/<%= animal.idbubalino %>" style="text-decoration: none;"><button class="btn btn-warning " id="editar"><i class="fa fa-edit" style="margin-right: 5px;" ></i>Editar</button></a></td>
-        <td><a style="text-decoration: none;" onclick="return confirm('Deseja mesmo realizar a exclução do animal: <%= animal.nome %>')" href="/animais/delete/<%= animal.idbubalino %>"><button class="btn btn-danger " id="excluir"><i class="fa fa-trash" style="margin-right: 5px;"></i>Excluir</button></a></td>
+        <td style="text-align: right;"><a href="/animais/editar/<%= animal.idbubalino %>" style="text-decoration: none;"><button class="btn btn-warning " id="editar"><i class="fa fa-edit" style="" ></i>Editar</button></a></td>
+        <td><a style="text-decoration: none;" onclick="return confirm('Deseja mesmo realizar a exclução do animal: <%= animal.nome %>')" href="/animais/delete/<%= animal.idbubalino %>"><button class="btn btn-danger " id="excluir"><i class="fa fa-trash" style=""></i>Excluir</button></a></td>
       </tr>
       <% }) %>
     </tbody>
@@ -92,14 +92,17 @@
 </div>
 </div>
 
+
+
+
 <!-- Modal Visualização -->
-<div class="modal fade" id="modalVisualizacao" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content p-3">
+<div class="modal fade" id="modalVisualizacao" tabindex="-1" role="dialog" >
+  <div class="modal-dialog modal-lg" >
+    <div class="modal-content p-3" id="vizualizar-animal">
       <div class="modal-header">
-        <h5 class="modal-title">Detalhes do Animal</h5>
+        <h4 class="modal-title">Detalhes do Animal</h4>
         <button type="button" class="close" data-dismiss="modal">
-          <span aria-hidden="true">&times;</span>
+          <span aria-hidden="true" id="x">&times;</span>
         </button>
       </div>
       <div class="modal-body">

@@ -25,6 +25,85 @@
 
 
 
+/* HOVER DASHBOARS */
+
+.card {
+  transition: transform 0.3s ease, border 0.3s ease;
+}
+.card1:hover {
+  transform: scale(1.05);
+  border: 2px solid #06D001 !important;
+}
+.card1:hover h2,
+.card1:hover p,
+.card1:hover img {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+/* Sombra sutil na imagem ao passar o mouse no card */
+.card1:hover .icone-card {
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
+}
+/* Sombra no título ao passar o mouse no card */
+.card1:hover h2 {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+
+.card2:hover {
+  transform: scale(1.05);
+  border: 2px solid #06D001 !important;
+}
+.card2:hover h2,
+.card2:hover p,
+.card2:hover img {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+/* Sombra sutil na imagem ao passar o mouse no card */
+.card2:hover .icone-card {
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
+}
+/* Sombra no título ao passar o mouse no card */
+.card2:hover h2 {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+
+
+.card3:hover {
+  transform: scale(1.05);
+  border: 2px solid #06D001 !important;
+}
+.card3:hover h2,
+.card3:hover p,
+.card3:hover img {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+/* Sombra sutil na imagem ao passar o mouse no card */
+.card3:hover .icone-card {
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
+}
+/* Sombra no título ao passar o mouse no card */
+.card3:hover h2 {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+
+.left-graph,
+.right-graph {
+  transition: transform 0.3s ease, border 0.3s ease;
+}
+
+.left-graph:hover,
+.right-graph:hover {
+  transform: scale(1.05);
+  border: 2px solid #06D001;
+}
+
+
+
 /* CARD 1 */
 #card1 {
   background: #4f6c7e;
@@ -36,7 +115,7 @@
   border: solid 2px #618399;
   color: #fff;
 }#titulo1{
-  font-size: 130%;
+  font-size: 160%;
   margin-bottom: 5% !important;
   text-align: left;
   margin-bottom: 0;
@@ -62,7 +141,7 @@
   color: #fff;
   border: solid 2px #618399;
 }#titulo2{
-  font-size: 130%;
+  font-size: 160%;
   margin-bottom: 5% !important;
   text-align: left;
   margin-bottom: 0;

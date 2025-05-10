@@ -1,3 +1,7 @@
+#label-alterar{
+  margin-bottom: 4%;
+}
+
 /* TABEL ALTERAR ANIMAL  */
 .card.bg-dark-custom {
     background-color: #3c4d58;
@@ -16,13 +20,7 @@
     color: #fff;
   }
 
-  #label-alterar{
-    margin-bottom: 2%;
-  }
-
   /* fim alterar animal */
-
-
 
 
 
@@ -48,6 +46,56 @@
     border-color: #627783;
     color: #fff;
   }
-
-
   /* fim alterar coleira */
+
+
+
+
+  /* EDITAR ANIMAL */
+/* Centralizar a .container-editar na página */
+.container-editar {
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center;     /* Centraliza verticalmente */
+  width: 100%;             /* Garante que ocupe toda a largura da tela */
+  min-height: 100vh;       /* Garante que ocupe toda a altura da tela */
+  margin: 0;
+  padding: 2%;             /* Adiciona um pequeno espaço interno para não grudar nas bordas */
+  margin-top: -5%;
+}
+
+/* Para limitar o tamanho da div em telas grandes e melhorar a responsividade */
+.card.bg-dark-custom {
+  max-width: 800px;  /* Limita o tamanho da div a 800px para telas grandes */
+  width: 100%;       /* Faz com que a largura ocupe 100% do espaço disponível até o limite */
+  border: 2px solid #06D001;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); 
+  text-align: left;
+}
+
+
+
+
+  /* EDITAR COLEIRA */
+  /* Centralizar a .container-editar na página */
+.container-editar-coleira{
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center;     /* Centraliza verticalmente */
+  width: 100%;             /* Garante que ocupe toda a largura da tela */
+  min-height: 100vh;       /* Garante que ocupe toda a altura da tela */
+  margin: 0;
+  padding: 2%;             /* Adiciona um pequeno espaço interno para não grudar nas bordas */
+  margin-top: -15%;
+}
+
+/* Para limitar o tamanho da div em telas grandes e melhorar a responsividade */
+.card.bg-dark-custom-coleira{
+  max-width: 800px;  /* Limita o tamanho da div a 800px para telas grandes */
+  width: 100%;       /* Faz com que a largura ocupe 100% do espaço disponível até o limite */
+  border: 2px solid #06D001;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); 
+  text-align: left;
+}

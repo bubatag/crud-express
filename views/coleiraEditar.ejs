@@ -2,9 +2,9 @@
 <%- include('partials/navbar.ejs') %>
 
 
-<div class="container">
-    <div class="card bg-dark-custom-coleira" id="tabelas">
-        <div class="card-header" >
+<div class="container-editar-coleira">
+    <div class="card bg-dark-custom-coleira">
+        <div class="card-header-editar" >
         <h4 style="font-weight: 700; width: 100%; border-bottom: solid 2px #ffffff48; text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);">Alterar Coleira</h4>
             <form action="/coleiras/update/<%= coleira.idcoleira %>" method="POST">
                 <label>Nome: </label>

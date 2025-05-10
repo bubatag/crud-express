@@ -65,7 +65,6 @@
   position: relative;
   z-index: 1;
   transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
-  
 }
 
 #editar::before {
@@ -74,7 +73,7 @@
   inset: 0;
   border-radius: inherit;
   padding: 2px; /* Espessura da borda */
-  background: radial-gradient(circle, #C9A101, #F2C200);
+  background: radial-gradient(circle, #C9A101, #F2C200) ;
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
