@@ -150,3 +150,12 @@ td {
   margin-bottom: 3%;
 }
 /* ACABA INDEX.EJS */
+
+#map {
+  width: 900px;
+  height: 700px;
+  margin: 40px auto;
+  border-radius: 20px;
+  border: 2px solid #06D001;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
