@@ -6,6 +6,13 @@
 .card.bg-dark-custom {
     background-color: #3c4d58;
     color: #fff;
+    height: 50%;
+    padding: 1.5%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    border: 2px solid #4f6c7e;
+    margin-top: 30px;
+    width: 40%;
   }
 
   .bg-dark-custom input,
@@ -27,7 +34,6 @@
 
 
   /* ALTERAR COLEIRA */
-
   .card.bg-dark-custom-coleira {
     background-color: #3C4D58;
     background: #3C4D58;

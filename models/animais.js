@@ -31,10 +31,6 @@ const Animais = connection.define('bubalinos', {
     idcoleira: {
         type: Sequelize.INTEGER,
         allowNull: true
-    },
-    idusuario: {
-        type: Sequelize.INTEGER,
-        allowNull: true
     }
 }, {
     timestamps: false // Desativa createdAt e updatedAt

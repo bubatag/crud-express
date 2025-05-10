@@ -41,15 +41,10 @@ body {
   filter: brightness(1.4) drop-shadow(0 0 0px #06D001);
 }
 
-
-
 .nav-item{
   color: white;
   font-weight: bold;
 }
-
-
-
 
 #nav-link {
  
@@ -66,9 +61,6 @@ body {
   /* filter: brightness(1.0) drop-shadow(0 0 0px #06D001); */
 }
 
-
-
-
 /* COMEÇA INDEX.EJS */
 tbody tr:nth-child(odd) {
     background-color: white;
@@ -83,16 +75,14 @@ tbody tr:nth-child(odd) {
     background-color: #90A955;
   }
 
-  /*---------------------------------------------------------------*/
+/*---------------------------------------------------------------*/
 
-
-  .tabela-container {
+.tabela-container {
     background-color: #374751;
     padding: 2%;
     width: 100%;
     display: inline-block; /* Faz com que a "borda" fique justinha na tabela */   
-  }
-
+}
 
 #tabelas{
   /* border: 2px solid #000000; */
@@ -188,15 +178,13 @@ td {
 #label-modal-coleira{
   margin-bottom: 3%;
 }
-
-
 /* ACABA INDEX.EJS */
 
-
-
-
-
-
-
-
-
+#map {
+  width: 900px;
+  height: 700px;
+  margin: 40px auto;
+  border-radius: 20px;
+  border: 2px solid #06D001;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}

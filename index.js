@@ -10,6 +10,7 @@ import connection from "./config/sequelize-config.js";
 import LoginController from "./controllers/LoginController.js";
 import ColeirasController from './controllers/ColeirasController.js';
 import IndexController from './controllers/IndexController.js';
+import LocalizacaoController from './controllers/LocalizacaoController.js'
 import './models/associations.js';
 
 connection.authenticate().then(() => {
@@ -25,6 +26,7 @@ app.use("/", AnimaisControllers);
 app.use("/", LoginController);
 app.use("/", ColeirasController);
 app.use("/", IndexController);
+app.use("/", LocalizacaoController);
 
 app.listen(8086, (error) => {
   if (error) {

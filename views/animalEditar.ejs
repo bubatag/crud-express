@@ -7,27 +7,43 @@
       <h4 style="font-weight: 700; width: 100%; border-bottom: solid 2px #ffffff48; text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2); font-size: 200%;">Alterar Animal</h4>
       <form action="/animais/update/<%= animal.idbubalino %>" method="POST" id="label-alterar">
         <input type="hidden" name="id" value="<%= animal.idbubalino %>">
-        <label>Nome:</label>
+        <label><strong>Nome:</strong></label>
         <input type="text" name="nome" class="form-control" value="<%= animal.nome %>" required id="label-alterar">
 
-        <label>Raça:</label>
+        <label><strong>Raça:</strong></label>
         <input type="text" name="raca" class="form-control" value="<%= animal.raca %>" required id="label-alterar">
 
-        <label>Etiqueta:</label>
+        <label><strong>Etiqueta:</strong></label>
         <input type="text" name="etiqueta" class="form-control" value="<%= animal.n_etiqueta %>" required id="label-alterar">
 
-        <label>Idade:</label>
+        <label><strong>Idade:</strong></label>
         <input type="text" name="idade" class="form-control" value="<%= animal.idade %>" required id="label-alterar">
 
-        <label>Sexo:</label>
-        <input type="text" name="sexo" class="form-control" value="<%= animal.sexo %>" required id="label-alterar">
-
-        <label>Coleira:</label>
+        <label for="masculino">
+          <input
+            type="radio"
+            id="masculino"
+            name="sexo"
+            value="Masculino"
+          />
+          Masculino
+        </label>
+        <label for="feminino">
+          <input 
+            type="radio" 
+            id="feminino" 
+            name="sexo" 
+            value="Feminino" 
+          />
+          Feminino
+        </label>
+        <br>
+        <label><strong>Coleira:</strong></label>
         <input type="text" name="idcoleira" class="form-control" value="<%= animal.idcoleira %>" required id="label-alterar">
     </div>
     <div class="card-body">
-        <button type="submit" class="btn btn-success" value="Alterar" id="alterar-coleira" onclick="return 
-        confirm('Confirma as alterações realizadas para o cliente <%= animal.nome %>?')"> Alterar </button>
+        <button type="submit" class="btn btn-success" value="Alterar" id="alterar-coleira" 
+        onclick="return confirm('Confirma as alterações realizadas para o animal <%= animal.nome %>?')"> Alterar </button>
       </form>
     </div>
   </div>
