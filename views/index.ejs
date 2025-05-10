@@ -1,96 +1,155 @@
 <%- include('partials/navbar.ejs') %>
-<%- include('partials/header.ejs') %> 
-</head>
+  <%- include('partials/header.ejs') %>
+    </head>
 
-<body style="font-family: 'Lato', sans-serif;">
-  <div class="container">
+    <body style="font-family: 'Lato', sans-serif;">
+      <div class="container">
 
-    <!-- Cards do topo -->
-    <div class="top-cards">
-      <div class="card card1">
-        <h2>Total de Animais</h2>
-        <p><strong><%= totalAnimais %></strong></p>
-      </div>
-      <div class="card card2">
-        <h2>Temperatura Média</h2>
-        <p><strong><%= mediaTemperatura %> °C</strong></p>
-      </div>
-      <div class="card card3">
-        <h2>Total de Coleiras</h2>
-        <p><strong><%= totalColeiras %></strong></p>
-      </div>
+<!-- Cards do topo -->
+<div class="top-cards">
+  <div class="card card1" id="card1">           
+    <div class="card-header">
+      <h2 id="titulo1">Total de Animais</h2>  
+      <img src="/images/buffalo.png" alt="ícone animais" class="icone-card" width="10%">
     </div>
-
-    <!-- Gráficos -->
-    <div class="middle-section">
-      <div class="left-graph">
-        <canvas id="multiAxisChart" width="400"></canvas>
-        <script>
-          const ctx = document.getElementById('multiAxisChart');
-          new Chart(ctx, {
-            type: 'line',
-            data: {
-              labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-              datasets: [
-                {
-                  label: 'Temperatura (°C)',
-                  data: [36.5, 37.0, 38.2, 36.9, 37.4, 36.7],
-                  yAxisID: 'y1',
-                  borderColor: 'rgb(255, 99, 132)',
-                  backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                  tension: 0.3
-                },
-                {
-                  label: 'Batimentos (bpm)',
-                  data: [70, 72, 74, 73, 75, 71],
-                  yAxisID: 'y2',
-                  borderColor: 'rgb(54, 162, 235)',
-                  backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                  tension: 0.3
-                }
-              ]
-            },
-            options: {
-              responsive: true,
-              interaction: {
-                mode: 'index',
-                intersect: false
-              },
-              stacked: false,
-              plugins: {
-                title: {
-                  display: true,
-                  text: 'Temperatura x Batimentos'
-                }
-              },
-              scales: {
-                y1: {
-                  type: 'linear',
-                  position: 'left',
-                  title: {
-                    display: true,
-                    text: 'Temperatura (°C)'
-                  }
-                },
-                y2: {
-                  type: 'linear',
-                  position: 'right',
-                  title: {
-                    display: true,
-                    text: 'Batimentos (bpm)'
-                  },
-                  grid: {
-                    drawOnChartArea: false
-                  }
-                }
-              }
-            }
-          });
-        </script>        
-      </div>
-      <div class="right-graph"></div>
-    </div>
+    <p id="texto1"><%= totalAnimais %></p>
   </div>
 
-  <%- include('partials/footer.ejs') %>
-</body>
+  <div class="card card2" id="card2">
+    <div class="card-header">
+      <h2 id="titulo2">Temperatura Média</h2>
+      <img src="/images/temperatura.png" alt="ícone temperatura" class="icone-card" width="10%">
+    </div>
+    <p id="texto2"><%= mediaTemperatura %> °C</p>
+  </div>
+
+  <div class="card card3" id="card3">
+    <div class="card-header">
+      <h2 id="titulo3">Total de Coleiras</h2>
+      <img src="/images/coleira.png" alt="ícone coleiras" class="icone-card" width="10%">
+    </div>
+    <p id="texto3"><%= totalColeiras %></p>
+  </div>
+</div>
+
+        <!-- Gráficos -->
+        <div class="middle-section">
+          <div class="left-graph">
+            <canvas id="multiAxisChart" width="400"></canvas>
+
+            <script>
+
+              const ctx = document.getElementById('multiAxisChart');
+              new Chart(ctx, {
+                type: 'line',
+                data: {
+                  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                  datasets: [
+                    {
+                      label: 'Temperatura (°C)',
+                      data: [36.5, 37.0, 38.2, 36.9, 37.4, 36.7],
+                      yAxisID: 'y1',
+                      borderColor: 'rgb(255, 99, 132)',  // Cor da linha
+                      tension: 0.3,
+                      backgroundColor: '#F2C200',
+                      borderWidth: 2  // Largura da borda da linha
+                    },
+                    {
+                      label: 'Batimentos (bpm)',
+                      data: [70, 72, 74, 73, 75, 71],
+                      yAxisID: 'y2',
+                      borderColor: '#90A955',  // Cor da linha
+                      tension: 0.3,
+                      backgroundColor: '#06D001',
+                      borderWidth: 2  // Largura da borda da linha
+                    }
+                  ]
+                },
+
+                options: {
+                  responsive: true,
+
+                  interaction: {
+                    mode: 'index',
+                    intersect: false
+                  },
+
+                  stacked: false,
+                  plugins: {
+                    title: {
+                      display: true,
+                      text: 'Temperatura x Batimentos',
+                      color: 'white',  // Cor do título
+                      font: {
+                        size: 16, // Tamanho da fonte do título
+                        weight: 'bold'
+                      }
+                    },
+                    legend: {
+                      labels: {
+                        color: 'white',  // Cor das legendas
+                      }
+                    }
+                  },
+
+                  scales: {
+                    y1: {
+                      type: 'linear',
+                      position: 'left',
+                      title: {
+                        display: true,
+                        text: 'Temperatura (°C)',
+                        color: 'white',  // Cor do texto do eixo
+                        font: {
+                          size: 15,  // Aumenta o tamanho da fonte dos ticks
+                          weight: 'bold'
+                        }
+                      },
+                      grid: {
+                        color: 'rgba(255, 255, 255, 0.3)',  // Cor das linhas de grade (grids)
+                      },
+                      ticks: {
+                        color: 'white',  // Cor dos valores do eixo Y
+                      }
+                    },
+
+                    y2: {
+                      type: 'linear',
+                      position: 'right',
+                      title: {
+                        display: true,
+                        text: 'Batimentos (bpm)',
+                        color: 'white',  // Cor do texto do eixo
+                        font: {
+                          size: 15,  // Aumenta o tamanho da fonte dos ticks
+                          weight: 'bold'
+                        }
+                      },
+                      grid: {
+                        color: 'rgba(255, 255, 255, 0.3)',  // Cor das linhas de grade (grids)
+                      },
+                      ticks: {
+                        color: 'white',  // Cor dos valores do eixo Y
+                      }
+                    },
+
+                    x: {
+                      ticks: {
+                        color: 'white',  // Cor dos valores do eixo X
+                      },
+                      grid: {
+                        color: 'rgba(255, 255, 255, 0.3)',  // Cor das linhas de grade do eixo X
+                      }
+                    }
+                  }
+                }
+              });
+            </script>
+
+          </div>
+          <div class="right-graph"></div>
+        </div>
+      </div>
+
+      <%- include('partials/footer.ejs') %>
+    </body>

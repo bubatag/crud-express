@@ -22,6 +22,7 @@ USE `bubatag_ofc`;
 
 -- Copiando estrutura para tabela bubatag_ofc.bubalinos
 DROP TABLE IF EXISTS `bubalinos`;
+
 CREATE TABLE IF NOT EXISTS `bubalinos` (
   `idbubalino` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(255) DEFAULT NULL,
@@ -40,6 +41,7 @@ CREATE TABLE IF NOT EXISTS `bubalinos` (
 
 -- Copiando dados para a tabela bubatag_ofc.bubalinos: ~7 rows (aproximadamente)
 DELETE FROM `bubalinos`;
+
 INSERT INTO `bubalinos` (`idbubalino`, `nome`, `raca`, `n_etiqueta`, `idade`, `sexo`, `idcoleira`, `idusuario`) VALUES
 	(1, 'josé', 'Murrah', 'CVX12', 4, 'Masculino', 1, 1),
 	(2, 'Lorré', 'Murrah', 'DCV14', 67, 'Masculino', 2, 1),
@@ -51,6 +53,7 @@ INSERT INTO `bubalinos` (`idbubalino`, `nome`, `raca`, `n_etiqueta`, `idade`, `s
 
 -- Copiando estrutura para tabela bubatag_ofc.coleiras
 DROP TABLE IF EXISTS `coleiras`;
+
 CREATE TABLE IF NOT EXISTS `coleiras` (
   `idcoleira` int(11) NOT NULL AUTO_INCREMENT,
   `n_coleira` varchar(4) DEFAULT NULL,
@@ -64,6 +67,7 @@ CREATE TABLE IF NOT EXISTS `coleiras` (
 
 -- Copiando dados para a tabela bubatag_ofc.coleiras: ~6 rows (aproximadamente)
 DELETE FROM `coleiras`;
+
 INSERT INTO `coleiras` (`idcoleira`, `n_coleira`, `coleira_localizacao`, `IP`, `idusuario`) VALUES
 	(1, '1', 'Normal', '10.12.27.30', 1),
 	(2, '2', 'Perigo', '10.12.27.40', 1),
@@ -74,6 +78,7 @@ INSERT INTO `coleiras` (`idcoleira`, `n_coleira`, `coleira_localizacao`, `IP`, `
 
 -- Copiando estrutura para tabela bubatag_ofc.dados
 DROP TABLE IF EXISTS `dados`;
+
 CREATE TABLE IF NOT EXISTS `dados` (
   `iddados` int(11) NOT NULL AUTO_INCREMENT,
   `batimento_cardiaco` int(11) DEFAULT NULL,
@@ -89,6 +94,7 @@ CREATE TABLE IF NOT EXISTS `dados` (
 
 -- Copiando dados para a tabela bubatag_ofc.dados: ~6 rows (aproximadamente)
 DELETE FROM `dados`;
+
 INSERT INTO `dados` (`iddados`, `batimento_cardiaco`, `temperatura`, `idbubalino`, `idcoleira`) VALUES
 	(1, 34, 45.00, 1, 1),
 	(2, 110, 56.00, 2, 2),
@@ -99,6 +105,7 @@ INSERT INTO `dados` (`iddados`, `batimento_cardiaco`, `temperatura`, `idbubalino
 
 -- Copiando estrutura para tabela bubatag_ofc.historico_estresse
 DROP TABLE IF EXISTS `historico_estresse`;
+
 CREATE TABLE IF NOT EXISTS `historico_estresse` (
   `idhistorico_estresse` int(11) NOT NULL AUTO_INCREMENT,
   `estado_estresse` varchar(50) DEFAULT NULL,
@@ -111,6 +118,7 @@ CREATE TABLE IF NOT EXISTS `historico_estresse` (
 
 -- Copiando dados para a tabela bubatag_ofc.historico_estresse: ~6 rows (aproximadamente)
 DELETE FROM `historico_estresse`;
+
 INSERT INTO `historico_estresse` (`idhistorico_estresse`, `estado_estresse`, `data_estresse`, `idbubalino`) VALUES
 	(1, 'Ocioso', '2025-05-02 11:07:33', 1),
 	(2, 'Ok', '2025-05-02 11:07:33', 2),
@@ -121,6 +129,7 @@ INSERT INTO `historico_estresse` (`idhistorico_estresse`, `estado_estresse`, `da
 
 -- Copiando estrutura para tabela bubatag_ofc.usuarios
 DROP TABLE IF EXISTS `usuarios`;
+
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `idusuario` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(255) DEFAULT NULL,
@@ -133,6 +142,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 
 -- Copiando dados para a tabela bubatag_ofc.usuarios: ~5 rows (aproximadamente)
 DELETE FROM `usuarios`;
+
 INSERT INTO `usuarios` (`idusuario`, `nome`, `email`, `senha`, `CCIR`) VALUES
 	(1, 'VInícius de Souza Camargo Costa', 'Vinicius@gmail.com', '1234', '1234567891234'),
 	(2, 'João', 'Joao@gmail.com', '4321', '7256812345679'),
@@ -144,4 +154,4 @@ INSERT INTO `usuarios` (`idusuario`, `nome`, `email`, `senha`, `CCIR`) VALUES
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
+bubalinos/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
