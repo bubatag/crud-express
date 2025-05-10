@@ -59,13 +59,11 @@
   justify-content: center;
   width: 100%;
   height: 2.5em;
-  margin-left: 30%;
   box-sizing: border-box;
   cursor: pointer;
   position: relative;
   z-index: 1;
   transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
-  
 }
 
 #editar::before {
@@ -223,12 +221,6 @@
   opacity: 1;
   color: #fff;
 }
-
-
-
-
-
-
 
 
 #visualizar {

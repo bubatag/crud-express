@@ -1,95 +1,208 @@
-<%- include('partials/header.ejs', { bodyClass: 'index-page' }) %>
-<%- include('partials/navbar.ejs') %>
+<%- include('partials/header.ejs', { bodyClass: 'index-page' }) %> <%-
+include('partials/navbar.ejs') %>
 
-<div class="container min-vh-100" style="display: flex; flex-direction: column; align-items: flex-start;">
+<div
+  class="container min-vh-100"
+  style="display: flex; flex-direction: column; align-items: flex-start"
+>
+  <button
+    style="display: block; text-align: left"
+    type="button"
+    class="btn btn-success"
+    id="adicionar"
+    data-toggle="modal"
+    data-target="#AdicionarAnimalModal"
+  >
+    <i class="fa fa-plus" style="margin-right: 5px"></i>Adicionar Animal
+  </button>
+  <div class="tabela-container" id="tabelas">
+    <table class="table bg-dark-custom table-striped">
+      <thead>
+        <tr>
+          <th>Visualizar</th>
+          <th scope="col">ID</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Raça</th>
+          <th scope="col">Etiqueta</th>
+          <th scope="col">Idade</th>
+          <th scope="col">Sexo</th>
+          <th scope="col">Localização</th>
+          <th scope="col" colspan="2" style="text-align: center">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% animais.forEach(animal=> { %>
+        <tr>
+          <td>
+            <button
+              class="btn btn-success visualizar-btn"
+              data-id="<%= animal.idbubalino %>"
+              id="visualizar"
+            >
+              <i class="fa fa-eye" aria-hidden="true"></i>
+            </button>
+          </td>
+          <td><%= animal.idbubalino %></td>
+          <td><%= animal.nome %></td>
+          <td><%= animal.raca %></td>
+          <td><strong><%= animal.n_etiqueta %></strong></td>
+          <td><%= animal.idade %> Meses</td>
+          <td><%= animal.sexo %></td>
+          <td>
+            <% if (animal.idcoleira == 1) { %>
+            <i
+              class="fa fa-circle"
+              style="margin-left: 30%; margin-top: 10%; color: #06d001"
+            ></i>
+            <%} else if (animal.idcoleira == 0) { %>
+            <i
+              class="fa fa-circle"
+              style="margin-left: 30%; margin-top: 10%; color: #d00801"
+            ></i>
+            <%} else if (animal.idcoleira == 2) { %>
+            <i
+              class="fa fa-circle"
+              style="margin-left: 30%; margin-top: 10%; color: #f2c200"
+            ></i>
+            <%}%>
+          </td>
+          <td style="text-align: right">
+            <button class="btn btn-warning" id="editar">
+              <a
+                style="text-decoration: none; color: #243036"
+                href="/animais/editar/<%= animal.idbubalino %>"
+              >
+                <i class="fa fa-edit" style="margin-right: 5px"></i>Editar</a
+              >
+            </button>
+          </td>
 
-<button style="display: block; text-align: left;" type="button" class="btn btn-success" id="adicionar" data-toggle="modal" data-target="#AdicionarAnimalModal"><i class="fa fa-plus" style="margin-right: 5px;"></i>Adicionar Animal</button>
-<div class="tabela-container" id="tabelas">
+          <td>
+            <a
+              style="text-decoration: none"
+              onclick="return confirm('Deseja mesmo realizar a exclução do animal: <%= animal.nome %>')"
+              href="/animais/delete/<%= animal.idbubalino %>"
+            >
+              <button class="btn btn-danger" id="excluir">
+                <i class="fa fa-trash" style="margin-right: 5px"></i>Excluir
+              </button></a
+            >
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
 
-  <table class="table bg-dark-custom table-striped">
-
-    <thead>
-      <tr >
-        <th>Visualizar</th>
-        <th scope="col">ID</th>
-        <th scope="col">Nome</th>
-        <th scope="col">Raça</th>
-        <th scope="col">Etiqueta</th>
-        <th scope="col">Idade</th>
-        <th scope="col">Sexo</th>
-        <th scope="col">Coleira</th>
-        <th scope="col" colspan="2" style="text-align: center;">Ações</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% animais.forEach(animal=> { %>
-      <tr>
-        <td>
-          <button class="btn btn-success visualizar-btn" data-id="<%= animal.idbubalino %>" id="visualizar">
-            <i class="fa fa-eye" aria-hidden="true"></i>
+  <!-- Modal Adicionar Animal -->
+  <div
+    class="modal fade"
+    id="AdicionarAnimalModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" id="modal-fora" role="document">
+      <div class="modal-content" id="modal-dentro">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            Adicionar Novo Animal
+          </h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true" id="x">&times;</span>
           </button>
-        </td>        
-        <td><%= animal.idbubalino %></td>
-        <td><%= animal.nome %></td>
-        <td><%= animal.raca %></td>
-        <td><%= animal.n_etiqueta %></td>
-        <td><%= animal.idade %> Meses</td>
-        <td><%= animal.sexo %></td>
-        <td>
-          <% if (animal.idcoleira == 1) { %>
-            <i class="fa fa-circle" style="margin-left: 20%; margin-top: 10%; color: #06D001; "></i>
-          <%} else if (animal.idcoleira == 0) { %>
-            <i class="fa fa-circle " style="margin-left: 20%; margin-top: 10%; color: #D00801;"></i>
-          <%} else if (animal.idcoleira == 2) { %>
-            <i class="fa fa-circle " style="margin-left: 20%; margin-top: 10%; color: #F2C200;"></i>
-          <%}%>
-        </td>
-        <td style="text-align: right;" ><a href="/animais/editar/<%= animal.idbubalino %>" style="text-decoration: none;"><button class="btn btn-warning " id="editar"><i class="fa fa-edit" style="margin-right: 5px;" ></i>Editar</button></a></td>
-        <td><a style="text-decoration: none;" onclick="return confirm('Deseja mesmo realizar a exclução do animal: <%= animal.nome %>')" href="/animais/delete/<%= animal.idbubalino %>"><button class="btn btn-danger " id="excluir"><i class="fa fa-trash" style="margin-right: 5px;"></i>Excluir</button></a></td>
-      </tr>
-      <% }) %>
-    </tbody>
-  </table>
-</div>
-
-<!-- Modal Adicionar Animal -->
-<div class="modal fade" id="AdicionarAnimalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" id="modal-fora" role="document">
-    <div class="modal-content" id="modal-dentro">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Adicionar Novo Animal</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" id="x" >&times;</span>
-        </button>
-      </div>
-      <form action="/animais/create" method="POST">
-      <div class="modal-body">
+        </div>
+        <form action="/animais/create" method="POST">
+          <div class="modal-body">
             <label>Nome</label>
-              <input type="text" name="nome" placeholder="Nome" class="form-control" required id="label-modal">
+            <input
+              type="text"
+              name="nome"
+              class="form-control"
+              required
+              id="label-modal"
+            />
 
             <label>Raça</label>
-              <input type="text" name="raca" placeholder="Raça" class="form-control" required id="label-modal">
+            <input
+              type="text"
+              name="raca"
+              class="form-control"
+              required
+              id="label-modal"
+            />
 
             <label>Etiqueta</label>
-              <input type="text" name="etiqueta" placeholder="Etiqueta de Registro" class="form-control" required id="label-modal">
+            <input
+              type="text"
+              name="etiqueta"
+              class="form-control"
+              required
+              id="label-modal"
+            />
 
             <label>Idade</label>
-              <input type="text" name="idade" placeholder="Idade" class="form-control" required id="label-modal">
+            <input
+              type="text"
+              name="idade"
+              class="form-control"
+              required
+              id="label-modal"
+            />
 
-            <label>Sexo</label>
-              <input type="text" name="sexo" placeholder="Sexo" class="form-control" required id="label-modal">
+            <label for="masculino">
+              <input
+                type="radio"
+                id="masculino"
+                name="sexo"
+                value="Masculino"
+              />
+              Masculino
+            </label>
 
+            <label for="feminino">
+              <input 
+                type="radio" 
+                id="feminino" 
+                name="sexo" 
+                value="Feminino" 
+              />
+              Feminino
+            </label>
+
+            <br />
             <label>Coleira</label>
-              <input type="text" name="coleira" placeholder="ID Coleira" class="form-control" required id="label-modal">
+            <input
+              type="text"
+              name="coleira"
+              class="form-control"
+              required
+              id="label-modal"
+            />
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+              id="excluir"
+            >
+              Fechar
+            </button>
+            <button type="submit" class="btn btn-success" id="adicionar">
+              Adicionar
+            </button>
+          </div>
+        </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="excluir">Fechar</button>
-        <button type="submit" class="btn btn-success" id="adicionar">Adicionar</button>
-      </div>
-    </form>
     </div>
   </div>
-</div>
 </div>
 
 <!-- Modal Visualização -->
@@ -98,9 +211,14 @@
     <div class="modal-content p-3">
       <div class="modal-header">
         <h5 class="modal-title">Detalhes do Animal</h5>
-        <button type="button" class="close" data-dismiss="modal">
-          <span aria-hidden="true">&times;</span>
-        </button>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true" id="x">&times;</span>
+          </button>
       </div>
       <div class="modal-body">
         <p><strong>Nome:</strong> <span id="modalNome"></span></p>
@@ -113,5 +231,4 @@
     </div>
   </div>
 </div>
-  
 <%- include('partials/footer.ejs') %>

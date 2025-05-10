@@ -1,8 +1,18 @@
-<%- include('partials/header.ejs') %> 
-<%- include('partials/navbar.ejs') %>
+<%- include('partials/header.ejs') %> <%- include('partials/navbar.ejs') %>
 
-<div class="container min-vh-100" style="display: flex; flex-direction: column; align-items: flex-start;" >
-  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#AdicionarColeiraModal" id="adicionar"><i class="fa fa-plus" style="margin-right: 5px;"></i>Adicionar Coleira</button>
+<div
+  class="container min-vh-100"
+  style="display: flex; flex-direction: column; align-items: flex-start"
+>
+  <button
+    type="button"
+    class="btn btn-success"
+    data-toggle="modal"
+    data-target="#AdicionarColeiraModal"
+    id="adicionar"
+  >
+    <i class="fa fa-plus" style="margin-right: 5px"></i>Adicionar Coleira
+  </button>
   <div class="tabela-container" id="tabelas">
   <table class="table bg-dark-custom table-striped">
     <thead>
@@ -31,28 +41,65 @@
 </div>
 
 <!-- Modal Adicionar Animal -->
-<div class="modal fade" id="AdicionarColeiraModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div
+  class="modal fade"
+  id="AdicionarColeiraModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
   <div class="modal-dialog" id="modal-fora-coleira" role="document">
-    <div class="modal-content" id="modal-dentro-coleira" >
+    <div class="modal-content" id="modal-dentro-coleira">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Adicionar Novo Animal</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <h5 class="modal-title" id="exampleModalLabel">
+          Adicionar Novo Animal
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
           <span aria-hidden="true" id="x">&times;</span>
         </button>
       </div>
       <form action="/coleiras/create" method="POST">
-      <div class="modal-body">
-            <label>Nº Coleira</label>
-              <input type="text" name="n_coleira" placeholder="Nº da Coleira" class="form-control" required id="label-modal-coleira">
+        <div class="modal-body">
+          <label>Nº Coleira</label>
+          <input
+            type="text"
+            name="n_coleira"
+            placeholder="Nº da Coleira"
+            class="form-control"
+            required
+            id="label-modal-coleira"
+          />
 
-            <label>IP</label>
-              <input type="text" name="ip" placeholder="IP da Coleira" class="form-control" required id="label-modal-coleira">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="excluir">Fechar</button>
-        <button type="submit" class="btn btn-success" id="adicionar">Adicionar</button>
-      </div>
-    </form>
+          <label>IP</label>
+          <input
+            type="text"
+            name="ip"
+            placeholder="IP da Coleira"
+            class="form-control"
+            required
+            id="label-modal-coleira"
+          />
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+            id="excluir"
+          >
+            Fechar
+          </button>
+          <button type="submit" class="btn btn-success" id="adicionar">
+            Adicionar
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
