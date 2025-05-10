@@ -57,7 +57,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: auto;
+  width: 100%;
   height: 2.5em;
   margin-left: 30%;
   box-sizing: border-box;
@@ -95,6 +95,85 @@
   opacity: 1;
   color: #fff;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#editar1 {
+  background: radial-gradient(circle, #F2C200 0%, #C9A101 100%);
+  font-family: 'Lato', sans-serif;
+  color: #2F3E46;
+  box-shadow: 0 0.2em 0.6em rgba(0, 0, 0, 0.2);
+  border: 2px solid transparent;
+  border-radius: 0.5em;
+  font-size: 1rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 2.5em;
+  margin-left: 30%;
+  box-sizing: border-box;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+  
+}
+
+#editar1::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px; /* Espessura da borda */
+  background: radial-gradient(circle, #C9A101, #F2C200);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0;
+  color: #fff;
+}
+
+#editar1:hover {
+  background: #2F3E46;
+  color: #fff;
+}
+
+#editar1:hover::before {
+  opacity: 1;
+  color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 #excluir {
   background: radial-gradient(circle, #f35966 0%, #d1404c 100%);
