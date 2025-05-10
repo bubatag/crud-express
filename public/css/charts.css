@@ -22,8 +22,6 @@
   padding: 1%;
 }
 
-
-
 /* CARD 1 */
 #card1 {
   background: #4f6c7e;
@@ -45,8 +43,6 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 
 }
-
-
 
 /* CARD 2 */
 #card2 {
@@ -95,7 +91,6 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-
 .card-header {
   display: flex;
   justify-content: space-between;
@@ -107,10 +102,6 @@
   padding: 0!important;
   margin: 0 !important;
 }
-
-
-
-
 
 /* Alinhamento gráficos chart.js */
 .middle-section {
@@ -124,7 +115,7 @@
 .left-graph,
 .right-graph {
   flex: 1;
-  height: 400px;
+  height: 500px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   border: solid 2px #618399;
 }
@@ -140,8 +131,6 @@
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
-
-
 
 /* Estilização Charts */
 #multiAxisChart{
