@@ -171,18 +171,19 @@
                   options: {
                     responsive: true,
                     plugins: {
+                      legend: {
+                        position: 'bottom', // 👈 Coloca a legenda abaixo do gráfico
+                        labels: {
+                          color: 'white' // ou outra cor de texto que combine com seu tema
+                        }
+                      },
                       title: {
                         display: true,
-                        text: 'Fugas de Animais por Mês',
+                        text: 'Fugas por Mês',
                         color: 'white',
                         font: {
                           size: 16,
                           weight: 'bold'
-                        }
-                      },
-                      legend: {
-                        labels: {
-                          color: 'white'
                         }
                       }
                     }
