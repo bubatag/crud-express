@@ -3,7 +3,6 @@
 </head>
 
 <div class="container">
-
   <!-- Cards do topo -->
   <div class="top-cards">
     <div class="card card1" id="card1">
@@ -47,27 +46,27 @@
         new Chart(ctxLine, {
           type: 'line',
           data: {
-            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-            datasets: [
-              {
-                label: 'Temperatura (°C)',
-                data: [36.5, 37.0, 38.2, 36.9, 37.4, 36.7],
-                yAxisID: 'y1',
-                borderColor: 'rgb(255, 99, 132)',
-                tension: 0.3,
-                backgroundColor: '#F2C200',
-                borderWidth: 2
-              },
-              {
-                label: 'Batimentos (bpm)',
-                data: [70, 72, 74, 73, 75, 71],
-                yAxisID: 'y2',
-                borderColor: '#90A955',
-                tension: 0.3,
-                backgroundColor: '#06D001',
-                borderWidth: 2
-              }
-            ]
+          labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+          datasets: [
+             {
+               label: 'Temperatura (°C)',
+               data: [36.5, 37.0, 38.2, 36.9, 37.4, 36.7, 36.5, 37.0, 38.2, 36.9, 37.4, 36.7],
+               yAxisID: 'y1',
+               borderColor: 'rgb(255, 99, 132)',  // Cor da linha
+               tension: 0.3,
+               backgroundColor: '#F2C200',
+               borderWidth: 2  // Largura da borda da linha
+             },
+             {
+               label: 'Batimentos (bpm)',
+               data: [70, 72, 74, 73, 75, 71, 70, 72, 74, 73, 75, 71],
+               yAxisID: 'y2',
+               borderColor: '#90A955',  // Cor da linha
+               tension: 0.3,
+               backgroundColor: '#06D001',
+               borderWidth: 2  // Largura da borda da linha
+             }
+             ]
           },
           options: {
             responsive: true,
@@ -104,6 +103,7 @@
                     size: 15,
                     weight: 'bold'
                   }
+
                 },
                 grid: {
                   color: 'rgba(255, 255, 255, 0.3)'
@@ -144,46 +144,52 @@
         });
       </script>
     </div>
-
     <div class="right-graph">
-      <canvas id="myChart"></canvas>
-    </div>
+      <canvas id="fugasChart" width="400" height="400"></canvas>
+         
+              <script>
+                const ctxFugas = document.getElementById('fugasChart');
 
-    <script>
-      const ctxBar = document.getElementById('myChart').getContext('2d');
-
-      new Chart(ctxBar, {
-        type: 'bar',
-        data: {
-          labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril'],
-          datasets: [{
-            label: 'Exemplo de Dados',
-            data: [12, 19, 3, 5],
-            backgroundColor: ['#4caf50', '#2196f3', '#ff9800', '#e91e63']
-          }]
-        },
-        options: {
-          responsive: true,
-          plugins: {
-            legend: {
-              labels: {
-                color: 'white'
-              }
-            }
-          },
-          scales: {
-            x: {
-              ticks: { color: 'white' }
-            },
-            y: {
-              ticks: { color: 'white' }
-            }
-          }
-        }
-      });
-    </script>
-  </div>
-
-</div>
+                new Chart(ctxFugas, {
+                  type: 'doughnut',
+                  data: {
+                    labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+                    datasets: [{
+                      label: 'Fugas por mês',
+                      data: [5, 12, 8, 14, 9, 3, 7, 11, 6, 10, 4, 2],
+                      backgroundColor: [
+                        '#06D001', '#0ACF3D', '#12C84F', '#19C161',
+                        '#22BB73', '#2BB485', '#34AD97', '#3DA7A9',
+                        '#46A0BB', '#4F99CD', '#5893DF', '#618CF1'
+                      ],
+                      borderColor: '#ffffff',
+                      borderWidth: 1
+                    }]
+                  },
+                  options: {
+                    responsive: true,
+                    plugins: {
+                      legend: {
+                        position: 'bottom', // 👈 Coloca a legenda abaixo do gráfico
+                        labels: {
+                          color: 'white' // ou outra cor de texto que combine com seu tema
+                        }
+                      },
+                      title: {
+                        display: true,
+                        text: 'Fugas por Mês',
+                        color: 'white',
+                        font: {
+                          size: 16,
+                          weight: 'bold'
+                        }
+                      }
+                    }
+                  }
+                });
+              </script>
+          </div>
+        </div>
+      </div>
 
 <%- include('partials/footer.ejs') %>
