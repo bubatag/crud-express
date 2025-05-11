@@ -184,7 +184,7 @@
   display: flex;
   gap: 20px;
   justify-content: center;
-  width: 100%;
+  width: 70%;
   margin-top: 10px;
 }
 
@@ -194,6 +194,7 @@
   height: 500px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   border: solid 2px #618399;
+  height: 60vh;
 }
 
 .left-graph {
@@ -201,6 +202,7 @@
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   padding: 1%;
+  
 }
 
 .right-graph {
@@ -210,5 +212,8 @@
   display: flex;
   justify-content: center;
   padding: 1%;
+
 }
+
+
 
