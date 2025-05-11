@@ -12,21 +12,23 @@
     overflow: hidden; /* ← ADICIONADO para remover o scroll causado pelos elementos decorativos */
 }
 
-  .container-login {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-  }
+.container-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
 
+  
   .card-container.card {
     max-width: 500px;
-    min-height: 60vh;
-    padding: 5%;
+    min-height: 60vh; /* ou outro valor que funcione bem visualmente */
+    padding: 2%;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-radius: 4%;
+    text-align: left;
   }
   
   .btn {
@@ -52,14 +54,7 @@
       display: block;
   }
   
-  .carousel-item {
-    position: relative; /* base para os elementos absolutos */
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
-    z-index: 1; /* base padrão do slide */
-  }
+
   
   .overlay-gradient {
     position: absolute;
@@ -71,10 +66,7 @@
     z-index: 2; /* acima do fundo */
   }
   
-  .carousel-caption {
-    position: relative;
-    z-index: 3; /* acima do gradiente */
-  }
+
   
   .custom-card {
     position: relative;
@@ -88,14 +80,7 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   }
 
-  .carousel-item {
-    position: relative;
-    height: 90vh;
-    background-size: cover;
-    background-position: center;
-    transition: background-image 1s ease-in-out;
-  }
-  
+
   .overlay-gradient {
     position: absolute;
     top: 0;
@@ -105,10 +90,7 @@
     background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.7));
     z-index: 1;
   }
-  
-  .carousel-caption {
-    z-index: 2;
-  }
+
   /* Form styles */
   .profile-name-card {
       font-size: 16px;
