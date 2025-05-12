@@ -67,7 +67,7 @@
   min-height: 100vh;       /* Garante que ocupe toda a altura da tela */
   margin: 0;
   padding: 2%;             /* Adiciona um pequeno espaço interno para não grudar nas bordas */
-  margin-top: 0;
+  margin-top: -3.5%;
 }
 
 /* Para limitar o tamanho da div em telas grandes e melhorar a responsividade */
@@ -93,7 +93,7 @@
   min-height: 100vh;       /* Garante que ocupe toda a altura da tela */
   margin: 0;
   padding: 2%;             /* Adiciona um pequeno espaço interno para não grudar nas bordas */
-  margin-top: -10%;
+  margin-top: -3.5%;
 }
 
 /* Para limitar o tamanho da div em telas grandes e melhorar a responsividade */

@@ -1,30 +1,22 @@
 <%- include('partials/header.ejs') %> 
 <%- include('partials/navbar.ejs') %>
-
-
 <div class="container-editar-coleira" data-aos="fade-up" data-aos-duration="500">
     <div class="card bg-dark-custom-coleira">
         <div class="card-header-editar" >
         <h4 style="font-weight: 700; width: 100%; border-bottom: solid 2px #ffffff48; text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);">Editar Coleira</h4>
             <form action="/coleiras/update/<%= coleira.idcoleira %>" method="POST">
-                <label>Nome: </label>
+                <label>Nº Coleira: </label>
                   <input type="text" name="n_coleira" class="form-control" value="<%= coleira.n_coleira %>" required id="label-alterar">
 
-                <label>Raça: </label>
+                <label>IP: </label>
                   <input type="text" name="ip" class="form-control" value="<%= coleira.ip %>" required id="label-alterar">
 
                   <input type="hidden" name="id" value="<%= coleira.idcoleira %>">
                   <button type="submit" class="btn btn-success" value="Alterar" id="alterar-coleira"
-                  onclick="return confirm('Confirma as alterações realizadas para o cliente <%= coleira.ip %>?')"> Alterar </button>
-
+                  onclick="return confirm('Confirma as alterações realizadas para a coleira Nº <%= coleira.n_coleira %>?')"> Alterar </button>
                 </div>
-
-
-
             </form>
         </div>
     </div>
 </div>
-
-
 <%- include('partials/footer.ejs') %>

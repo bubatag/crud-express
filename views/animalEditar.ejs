@@ -40,7 +40,15 @@
         </label>
         <br>
         <label><strong>Coleira:</strong></label>
-        <input type="text" name="idcoleira" class="form-control" value="<%= animal.idcoleira %>" required id="label-alterar">
+        <select name="idcoleira" class="form-control" required id="label-alterar">
+          <option value="" disabled>Selecione uma coleira</option>
+          <% coleiras.forEach(coleira => { %>
+            <option value="<%= coleira.idcoleira %>" 
+              <%= animal.idcoleira == coleira.idcoleira ? 'selected' : '' %>>
+                  Coleira Nº<%= coleira.idcoleira %> - <%= coleira.ip %>
+            </option>
+          <% }) %>
+        </select>
     </div>
     <div class="card-body">
         <button type="submit" class="btn btn-success" value="Alterar" id="alterar-coleira" 

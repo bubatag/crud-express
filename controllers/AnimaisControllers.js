@@ -4,17 +4,20 @@ import Animais from "../models/animais.js";
 import Dados from "../models/dados.js";
 import Coleiras from "../models/coleiras.js";
 
-// SELECT
 router.get("/animais", function (req, res) {
-  Animais.findAll({
-    include: [
-      { model: Dados, as: "dados" },
-      { model: Coleiras, as: "coleira" } // Include para acessar coleira_localizacao
-    ]
-  })
-    .then((animais) => {
+  Promise.all([
+    Animais.findAll({
+      include: [
+        { model: Dados, as: "dados" },
+        { model: Coleiras, as: "coleira" }
+      ]
+    }),
+    Coleiras.findAll()
+  ])
+    .then(([animais, coleiras]) => {
       res.render("animais", {
         animais: animais,
+        coleiras: coleiras
       });
     })
     .catch((error) => {
@@ -65,13 +68,21 @@ router.post("/animais/create", (req, res) => {
 
 
 // PAGE UPDATE
-router.get("/animais/editar/:id", (req,res) => {
+router.get("/animais/editar/:id", async (req, res) => {
   const idbubalino = req.params.id;
-  Animais.findByPk(idbubalino).then((animal) => {
+
+  try {
+    const animal = await Animais.findByPk(idbubalino);
+    const coleiras = await Coleiras.findAll();
+
     res.render("animalEditar", {
-      animal : animal,
+      animal: animal,
+      coleiras: coleiras
     });
-  });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Erro ao buscar animal ou coleiras.");
+  }
 });
 
 // UPDATE 
