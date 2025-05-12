@@ -40,7 +40,7 @@
               style="text-decoration: none"
             >
               <button class="btn btn-warning" id="editar1">
-                <i class="fa fa-edit"></i> Editar
+                <i class="fa fa-edit" style="margin-right: 5px;"></i> <strong>Editar</strong>
               </button>
             </a>
           </td>
@@ -52,7 +52,7 @@
               onclick="return confirm('Deseja mesmo realizar a exclusão da coleira: <%= coleira.n_coleira %>')"
             >
               <button class="btn btn-danger" id="excluir">
-                <i class="fa fa-trash"></i> Excluir
+                <i class="fa fa-trash" style="margin-right: 5px;"></i><strong>Excluir</strong>
               </button>
             </a>
           </td>
@@ -79,7 +79,7 @@
     <div class="modal-content" id="modal-dentro-coleira">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">
-          Adicionar Novo Animal
+          Adicionar Nova Coleira
         </h5>
         <button
           type="button"
@@ -96,7 +96,6 @@
           <input
             type="text"
             name="n_coleira"
-            placeholder="Nº da Coleira"
             class="form-control"
             required
             id="label-modal-coleira"
@@ -106,7 +105,6 @@
           <input
             type="text"
             name="ip"
-            placeholder="IP da Coleira"
             class="form-control"
             required
             id="label-modal-coleira"

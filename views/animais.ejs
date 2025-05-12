@@ -36,23 +36,25 @@ include('partials/navbar.ejs') %>
         <td><%= animal.idade %> Meses</td>
         <td><%= animal.sexo %></td>
         <td>
-          <% if (animal.idcoleira == 1) { %>
-            <i class="fa fa-circle" style="margin-left: 20%; margin-top: 10%; color: #06D001; "></i>
-          <%} else if (animal.idcoleira == 0) { %>
-            <i class="fa fa-circle " style="margin-left: 20%; margin-top: 10%; color: #D00801;"></i>
-          <%} else if (animal.idcoleira == 2) { %>
-            <i class="fa fa-circle " style="margin-left: 20%; margin-top: 10%; color: #F2C200;"></i>
-          <%}%>
+          <% const status = animal.coleira?.coleira_localizacao; %>
+          <% if (status === 'Normal') { %>
+            <i class="fa fa-circle" style="margin-left: 20%; margin-top: 10%; color: #06D001;"></i>
+          <% } else if (status === 'Perigo') { %>
+            <i class="fa fa-circle" style="margin-left: 20%; margin-top: 10%; color: #D00801;"></i>
+          <% } else if (status === 'Fora') { %>
+            <i class="fa fa-circle" style="margin-left: 20%; margin-top: 10%; color: #F2C200;"></i>
+          <% } else { %>
+            <i class="fa fa-circle" style="margin-left: 20%; margin-top: 10%; color: #cccccc;"></i> <!-- Cinza claro -->
+          <% } %>
         </td>
-
         <div class="botao-container">
         <td style="text-align: right;">
           <a 
           href="/animais/editar/<%= animal.idbubalino %>" 
           style="text-decoration: none;"
           >
-          <button class="btn btn-warning " id="editar">
-            <i class="fa fa-edit"></i>Editar
+          <button class="btn btn-warning" id="editar">
+            <i class="fa fa-edit" style="margin-right: 5px;"></i><strong>Editar</strong>
           </button>
         </a>
       </td>
@@ -64,11 +66,10 @@ include('partials/navbar.ejs') %>
           href="/animais/delete/<%= animal.idbubalino %>"
           >
           <button class="btn btn-danger " id="excluir">
-            <i class="fa fa-trash"></i>Excluir
+            <i class="fa fa-trash" style="margin-right: 5px;"></i><strong>Excluir</strong>
           </button>
         </a>
       </td>
-
         </div>
       </tr>
 

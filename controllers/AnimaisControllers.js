@@ -2,10 +2,16 @@ import express from "express";
 const router = express.Router();
 import Animais from "../models/animais.js";
 import Dados from "../models/dados.js";
+import Coleiras from "../models/coleiras.js";
 
 // SELECT
 router.get("/animais", function (req, res) {
-  Animais.findAll()
+  Animais.findAll({
+    include: [
+      { model: Dados, as: "dados" },
+      { model: Coleiras, as: "coleira" } // Include para acessar coleira_localizacao
+    ]
+  })
     .then((animais) => {
       res.render("animais", {
         animais: animais,
