@@ -5,8 +5,10 @@
 <div class="container">
   <!-- Cards do topo -->
   <div class="top-cards">
-    <div class="card card1" id="card1">
-      <div class="card-header">
+
+    <div data-aos="zoom-in-right" data-aos-duration="500">
+    <div class="card card1" id="card1" >
+      <div class="card-header" id="card-1">
         <h2 id="titulo1">Total de Animais</h2>
         <img src="/images/buffalo.png" alt="ícone animais" class="icone-card" width="10%">
       </div>
@@ -14,7 +16,9 @@
         <%= totalAnimais %>
       </p>
     </div>
+    </div>
 
+    <div data-aos="zoom-in" data-aos-duration="500">
     <div class="card card2" id="card2">
       <div class="card-header">
         <h2 id="titulo2">Temperatura Média</h2>
@@ -24,7 +28,9 @@
         <%= mediaTemperatura %> °C
       </p>
     </div>
+    </div>
 
+    <div data-aos="zoom-in-left" data-aos-duration="500">
     <div class="card card3" id="card3">
       <div class="card-header">
         <h2 id="titulo3">Total de Coleiras</h2>
@@ -35,12 +41,12 @@
       </p>
     </div>
   </div>
-
+  </div>
+ 
   <!-- Gráficos -->
-  <div class="middle-section">
-    <div class="left-graph">
-      <canvas id="multiAxisChart" width="150%" height="90%"></canvas>
-
+  <div class="middle-section" >
+    <div class="left-graph" data-aos="fade-up" data-aos-duration="500">
+      <canvas id="multiAxisChart" width="150%" height="90%" ></canvas>
       <script>
         const ctxLine = document.getElementById('multiAxisChart').getContext('2d');
         new Chart(ctxLine, {
@@ -144,7 +150,9 @@
         });
       </script>
     </div>
-    <div class="right-graph">
+
+
+    <div class="right-graph" data-aos="fade-up" data-aos-duration="500">
       <canvas id="fugasChart" width="100%" height="90%"></canvas>
          
               <script>
@@ -191,5 +199,6 @@
           </div>
         </div>
       </div>
-
+    </div>
+    
 <%- include('partials/footer.ejs') %>

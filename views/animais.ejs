@@ -1,7 +1,7 @@
 <%- include('partials/header.ejs', { bodyClass: 'index-page' }) %> <%-
 include('partials/navbar.ejs') %>
 
-<div class="container min-vh-100" style="display: flex; flex-direction: column; align-items: flex-start;">
+<div class="container min-vh-100" style="display: flex; flex-direction: column; align-items: flex-start;" data-aos="fade-down" data-aos-duration="500">
 
 <button style="display: block; text-align: left;" type="button" class="btn btn-success" id="adicionar" data-toggle="modal" data-target="#AdicionarAnimalModal"><i class="fa fa-plus" style="margin-right: 5px;"></i>Adicionar Animal</button>
 <div class="tabela-container" id="tabelas">
@@ -75,6 +75,7 @@ include('partials/navbar.ejs') %>
       <% }) %>
     </tbody>
   </table>
+</div>
 </div>
 
   <!-- Modal Adicionar Animal -->
@@ -186,7 +187,7 @@ include('partials/navbar.ejs') %>
       </div>
     </div>
   </div>
-</div>
+
 
 
 
