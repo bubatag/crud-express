@@ -11,7 +11,7 @@
             document.getElementById("modalIdade").innerText = data.idade || '';
             document.getElementById("modalSexo").innerText = data.sexo || '';
             document.getElementById("modalTemperatura").innerText = data.dados?.temperatura ? `${data.dados.temperatura} ºC` : 'Sem dados';
-            document.getElementById("modalBatimento").innerText = data.dados?.batimento_cardiaco || 'Sem dados';
+            document.getElementById("modalBatimento").innerText = data.dados?.batimento_cardiaco? `${data.dados.batimento_cardiaco} bpm` : 'Sem dados';
   
             $('#modalVisualizacao').modal('show');
           });
