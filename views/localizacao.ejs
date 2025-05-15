@@ -1,27 +1,74 @@
-<%- include('partials/navbar.ejs') %>
-<%- include('partials/header.ejs') %> 
+<%- include('partials/navbar.ejs') %> <%- include('partials/header.ejs') %>
 
 <div id="map" data-aos="zoom-in"></div>
 
 <script>
-    const map = L.map("map").setView([-24.586153483493124, -47.89088919401234], 17); // Centraliza em Registro/SP
+      const map = L.map("map").setView([-24.587326, -47.888352], 18); // Centraliza em Registro/SP
 
-  // Adiciona mapa base
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: '© OpenStreetMap contributors'
+    // Adiciona mapa base
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+      attribution: '© Esri'
   }).addTo(map);
 
-  
-  // Pega localizações do servidor
-  const localizacoes = <%- JSON.stringify(localizacoes) %>;
+  var icone = L.icon({
+          iconUrl: '/images/buffalo2.png',
+          iconSize: [50, 35],
+          iconAnchor: [25, 25],
+          popupAnchor: [0, -10],
 
-  localizacoes.forEach(loc => {
-    if (loc.latitude && loc.longitude) {
-      L.marker([loc.latitude, loc.longitude])
-        .addTo(map)
-        .bindPopup(`ID Bubalino: ${loc.idbubalino} <br>ID Coleira: ${loc.idcoleira}`);
-    }
+        });
+
+    var areaFazenda = L.polygon([
+      [-24.586141, -47.887263],
+      [-24.587877, -47.886619],
+      [-24.588963, -47.88807],
+      [-24.586452, -47.890766],
+      [-24.586173, -47.890337],
+      [-24.586568, -47.888871],
+      ],
+      {
+        color: "#D00801",
+        fillColor: "#08DB03",
+        fillOpacity: 0.5,
+        weight: 1.5
+      }).addTo(map);
+
+    // Pega localizações do servidor
+    const localizacoes = <%- JSON.stringify(localizacoes) %>
+
+    localizacoes.forEach(loc => {
+      if (loc.latitude && loc.longitude) {
+          // Armazene o marcador em uma variável
+          const marker = L.marker([loc.latitude, loc.longitude], {icon: icone}).addTo(map);
+
+          // Adicione o popup
+          marker.bindPopup(`
+              <div class="custom-popup">
+                  <p id="id-bubalino">ID: ${loc.idbubalino}</p>
+                  <p id="coleira-bubalino">Coleira: ${loc.idcoleira}</p>
+                  <p id="etiqueta-bubalino">Etiqueta: ${loc.n_etiqueta}</p>
+              </div>
+          `);
+
+          // Evento para abrir ao passar o mouse
+          marker.on('mouseover', function() {
+              this.openPopup();
+          });
+
+          // Evento para fechar ao retirar o mouse
+          marker.on('mouseout', function() {
+            setTimeout(() => {
+              this.closePopup();
+          }, 150); // Fecha após 300ms
+          });
+      }
   });
+
+
+
+
+
 </script>
 
 <%- include('partials/footer.ejs') %>
+ 

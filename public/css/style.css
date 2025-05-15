@@ -12,13 +12,13 @@ body {
 
 /* NAVBAR */
 #navbar {
- background-color: #40555F;
- box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
- position: fixed;
- top: 0; 
- width: 100%; 
- z-index: 2;
- height: 7vh;
+background-color: #40555F;
+box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+position: fixed;
+top: 0; 
+width: 100%; 
+z-index: 2;
+height: 7vh;
 }
 
 #navbar::after {
@@ -47,7 +47,7 @@ body {
 }
 
 #nav-link {
- 
+
   position: relative;
   color: #fff;
   text-decoration: none;
@@ -191,7 +191,68 @@ td {
   transition: transform 0.3s ease, border 0.3s ease;
 } 
 
+/* -------------------------------- */
+
 #map:hover{
   transform: scale(1.05);
   border: 2px solid #06D001;
 }
+
+.custom-popup{
+  width: 100%;
+  height: 100%;
+}
+
+#informacoes-bubalino{
+  font-size:150%; 
+  border-bottom: 1px solid #08DB03
+}
+#id-bubalino{
+  font-size:90%;
+  font-weight: bold;
+}
+#coleira-bubalino{
+  font-size:90%;
+  font-weight: bold;
+}
+#etiqueta-bubalino{
+  font-size:90%;
+  font-weight: bold;
+}
+
+
+
+/* Remove TODOS os espaços externos do popup */
+.leaflet-popup-content-wrapper {
+  background-color: #40555F; 
+  border-radius: 10px; 
+  color: white; 
+  border: 2px solid #06D001; 
+  padding-left: 10px; 
+  padding-right: 10px;
+}
+
+/* Remove o fundo e borda da setinha */
+.leaflet-popup-tip {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Remove margens internas do container de conteúdo */
+.leaflet-popup-content {
+  margin: 0 !important;
+  min-width: 0 !important;
+}
+
+/* Estilo do SEU conteúdo (agora 100% controlado por você) */
+.custom-popup {
+  background: #2c3e50; /* Sua cor de fundo */
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+ 
