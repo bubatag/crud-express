@@ -29,9 +29,12 @@
         <tr>
           <td><strong><%= coleira.idcoleira %></strong></td>
           <td><%= coleira.n_coleira %></td>
-          <td><%= coleira.coleira_localizacao %></td>
+          <td><% if (coleira.coleira_localizacao) {
+            coleira.coleira_localizacao
+          } else { %>
+            Sem Informação
+          <% } %></td>
           <td><%= coleira.ip %></td>
-
 
           <div class="botao-container">
           <td style="text-align: right; justify-content: end; width: 13%;">
@@ -66,7 +69,7 @@
   </div>
 </div>
 
-<!-- Modal Adicionar Animal -->
+<!-- Modal Adicionar Coleira -->
 <div
   class="modal fade"
   id="AdicionarColeiraModal"

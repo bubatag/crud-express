@@ -168,7 +168,7 @@ include('partials/navbar.ejs') %>
               <option value="" disabled selected>Selecione uma coleira</option>
               <% coleiras.forEach(coleira => { %>
                 <option value="<%= coleira.idcoleira %>">
-                  Coleira Nº<%= coleira.idcoleira %> - <%= coleira.ip %>
+                  Coleira Nº<%= coleira.idcoleira %> - IP: <%= coleira.ip %>
                 </option>
               <% }) %>
             </select>
