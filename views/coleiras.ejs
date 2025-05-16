@@ -29,9 +29,9 @@
         <tr>
           <td><strong><%= coleira.idcoleira %></strong></td>
           <td><%= coleira.n_coleira %></td>
-          <td><% if (coleira.coleira_localizacao) {
-            coleira.coleira_localizacao
-          } else { %>
+          <td><% if (coleira.coleira_localizacao) { %>
+            <%= coleira.coleira_localizacao %>
+            <% } else { %>
             Sem Informação
           <% } %></td>
           <td><%= coleira.ip %></td>
