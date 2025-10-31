@@ -223,7 +223,7 @@
 
 
 #visualizar {
-  background: radial-gradient(circle, #06D001 0%, #04A600 100%);
+  background: radial-gradient(circle, #5dade2 0%, #3498db 100%);
   font-family: 'Lato', sans-serif;
   color: #243036;
   box-shadow: 0 0.2em 0.6em rgba(0, 0, 0, 0.2);
@@ -249,7 +249,7 @@
   inset: 0;
   border-radius: inherit;
   padding: 2px; /* Espessura da borda */
-  background: radial-gradient(circle, #90A955, #06D001);
+  background: radial-gradient(circle, #85c1e9, #5dade2);
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);

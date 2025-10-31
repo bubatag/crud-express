@@ -1,24 +1,29 @@
 <%- include('partials/header.ejs', { bodyClass: 'index-page' }) %> <%-
 include('partials/navbar.ejs') %>
 
-<div class="container min-vh-100" style="display: flex; flex-direction: column; align-items: flex-start;" data-aos="fade-down" data-aos-duration="500">
+<div class="container-fluid min-vh-100" style="padding: 20px 15px;" data-aos="fade-down" data-aos-duration="500">
 
-<button style="display: block; text-align: left;" type="button" class="btn btn-success" id="adicionar" data-toggle="modal" data-target="#AdicionarAnimalModal"><i class="fa fa-plus" style="margin-right: 5px;"></i>Adicionar Animal</button>
-<div class="tabela-container" id="tabelas">
+<div style="display: flex; justify-content: flex-end; margin-bottom: 10px; margin-top: 40px;">
+  <button type="button" class="btn btn-success" id="adicionar" data-toggle="modal" data-target="#AdicionarAnimalModal">
+    <i class="fa fa-plus" style="margin-right: 5px;"></i>Adicionar Animal
+  </button>
+</div>
 
-  <table class="table bg-dark-custom table-striped">
+<div class="tabela-container" id="tabelas" style="width: 100%;">
+
+  <table class="table bg-dark-custom table-striped" style="table-layout: fixed; width: 100%; font-size: 1.1rem;">
 
     <thead>
       <tr >
-        <th>Visualizar</th>
-        <th scope="col">ID</th>
-        <th scope="col">Nome</th>
-        <th scope="col">Raça</th>
-        <th scope="col">Etiqueta</th>
-        <th scope="col">Idade</th>
-        <th scope="col">Sexo</th>
-        <th scope="col">Coleira</th>
-        <th scope="col" colspan="2" style="text-align: center;">Ações</th>
+        <th style="width: 8%;">Visualizar</th>
+        <th scope="col" style="width: 6%;">ID</th>
+        <th scope="col" style="width: 8%;">Coleira</th>
+        <th scope="col" style="width: 15%;">Nome</th>
+        <th scope="col" style="width: 12%;">Raça</th>
+        <th scope="col" style="width: 10%;">Etiqueta</th>
+        <th scope="col" style="width: 10%;">Idade</th>
+        <th scope="col" style="width: 8%;">Sexo</th>
+        <th scope="col" style="width: 23%; text-align: center;">Ações</th>
       </tr>
     </thead>
     <tbody>
@@ -30,11 +35,6 @@ include('partials/navbar.ejs') %>
           </button>
         </td>        
         <td><%= animal.idbubalino %></td>
-        <td><%= animal.nome %></td>
-        <td><%= animal.raca %></td>
-        <td><%= animal.n_etiqueta %></td>
-        <td><%= animal.idade %> Meses</td>
-        <td><%= animal.sexo %></td>
         <td>
           <% const status = animal.coleira?.coleira_localizacao; %>
           <% if (status === 'Normal') { %>
@@ -47,30 +47,32 @@ include('partials/navbar.ejs') %>
             <i class="fa fa-circle" style="margin-left: 20%; margin-top: 10%; color: #cccccc;"></i> <!-- Cinza claro -->
           <% } %>
         </td>
-        <div class="botao-container">
-        <td style="text-align: right;">
-          <a 
-          href="/animais/editar/<%= animal.idbubalino %>" 
-          style="text-decoration: none;"
-          >
-          <button class="btn btn-warning" id="editar">
-            <i class="fa fa-edit" style="margin-right: 5px;"></i><strong>Editar</strong>
-          </button>
-        </a>
-      </td>
-
-        <td>
-          <a 
-          style="text-decoration: none;" 
-          onclick="return confirm('Deseja mesmo realizar a exclução do animal: <%= animal.nome %>')" 
-          href="/animais/delete/<%= animal.idbubalino %>"
-          >
-          <button class="btn btn-danger " id="excluir">
-            <i class="fa fa-trash" style="margin-right: 5px;"></i><strong>Excluir</strong>
-          </button>
-        </a>
-      </td>
-        </div>
+        <td><%= animal.nome %></td>
+        <td><%= animal.raca %></td>
+        <td><%= animal.n_etiqueta %></td>
+        <td><%= animal.idade %> Meses</td>
+        <td><%= animal.sexo %></td>
+        <td style="text-align: center;">
+          <div style="display: flex; justify-content: center; gap: 10px;">
+            <a 
+            href="/animais/editar/<%= animal.idbubalino %>" 
+            style="text-decoration: none;"
+            >
+            <button class="btn btn-warning" id="editar" style="width: 80px;">
+              <i class="fa fa-edit" style="margin-right: 5px;"></i>
+            </button>
+          </a>
+            <a 
+            style="text-decoration: none;" 
+            onclick="return confirm('Deseja mesmo realizar a exclução do animal: <%= animal.nome %>')" 
+            href="/animais/delete/<%= animal.idbubalino %>"
+            >
+            <button class="btn btn-danger" id="excluir" style="width: 80px;">
+              <i class="fa fa-trash" style="margin-right: 5px;"></i>
+            </button>
+          </a>
+          </div>
+        </td>
       </tr>
 
       <% }) %>
