@@ -1,27 +1,42 @@
 <%- include('partials/header.ejs') %> <%- include('partials/navbar.ejs') %>
 
 <div
-  class="container min-vh-100"
-  style="display: flex; flex-direction: column; align-items: flex-start" data-aos="fade-down" data-aos-duration="500"
+  class="container-fluid min-vh-100"
+  style="padding: 20px 15px"
+  data-aos="fade-down"
+  data-aos-duration="500"
 >
-  <button
-    type="button"
-    class="btn btn-success"
-    data-toggle="modal"
-    data-target="#AdicionarColeiraModal"
-    id="adicionar"
+  <div
+    style="
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 10px;
+      margin-top: 40px;
+    "
   >
-    <i class="fa fa-plus" style="margin-right: 5px"></i>Adicionar Coleira
-  </button>
-  <div class="tabela-container" id="tabelas">
-    <table class="table bg-dark-custom table-striped">
+    <button
+      type="button"
+      class="btn btn-success"
+      data-toggle="modal"
+      data-target="#AdicionarColeiraModal"
+      id="adicionar"
+    >
+      <i class="fa fa-plus" style="margin-right: 5px"></i>Adicionar Coleira
+    </button>
+  </div>
+
+  <div class="tabela-container" id="tabelas" style="width: 100%">
+    <table
+      class="table bg-dark-custom table-striped"
+      style="table-layout: fixed; width: 100%; font-size: 1.1rem"
+    >
       <thead>
         <tr>
           <th scope="col">ID</th>
           <th scope="col">Nº Etiqueta</th>
           <th scope="col">Localização</th>
           <th scope="col">IP</th>
-          <th scope="col" colspan="2" style="text-align: center; padding-right: 10%;">Ações</th>
+          <th scope="col" style="width: 23%; text-align: center">Ações</th>
         </tr>
       </thead>
       <tbody>
@@ -29,40 +44,38 @@
         <tr>
           <td><strong><%= coleira.idcoleira %></strong></td>
           <td><%= coleira.n_coleira %></td>
-          <td><% if (coleira.coleira_localizacao) { %>
-            <%= coleira.coleira_localizacao %>
-            <% } else { %>
-            Sem Informação
-          <% } %></td>
-          <td><%= coleira.ip %></td>
-
-          <div class="botao-container">
-          <td style="text-align: right; justify-content: end; width: 13%;">
-            <a
-              href="/coleiras/editar/<%= coleira.idcoleira %>"
-              style="text-decoration: none"
-            >
-              <button class="btn btn-warning" id="editar1">
-                <i class="fa fa-edit" style="margin-right: 5px;"></i> <strong>Editar</strong>
-              </button>
-            </a>
-          </td>
-
           <td>
-            <a
-              href="/coleiras/delete/<%= coleira.idcoleira %>"
-              style="text-decoration: none; color: #243036"
-              onclick="return confirm('Deseja mesmo realizar a exclusão da coleira: <%= coleira.n_coleira %>')"
-            >
-              <button class="btn btn-danger" id="excluir">
-                <i class="fa fa-trash" style="margin-right: 5px;"></i><strong>Excluir</strong>
-              </button>
-            </a>
+            <% if (coleira.coleira_localizacao) { %> <%=
+            coleira.coleira_localizacao %> <% } else { %> Sem Informação <% } %>
           </td>
+          <td><%= coleira.ip %></td>
+          <td style="text-align: center">
+            <div style="display: flex; justify-content: center; gap: 10px">
+              <a
+                href="/coleiras/editar/<%= coleira.idcoleira %>"
+                style="text-decoration: none"
+              >
+                <button
+                  class="btn btn-warning"
+                  id="editar1"
+                  style="width: 80px"
+                >
+                  <i class="fa fa-edit" style="margin-right: 5px"></i>
+                </button>
+              </a>
 
-         </div>
+              <a
+                href="/coleiras/delete/<%= coleira.idcoleira %>"
+                style="text-decoration: none; color: #243036"
+                onclick="return confirm('Deseja mesmo realizar a exclusão da coleira: <%= coleira.n_coleira %>')"
+              >
+                <button class="btn btn-danger" id="excluir" style="width: 80px">
+                  <i class="fa fa-trash" style="margin-right: 5px"></i>
+                </button>
+              </a>
+            </div>
+          </td>
         </tr>
-
         <% }) %>
       </tbody>
     </table>
@@ -114,6 +127,9 @@
           />
         </div>
         <div class="modal-footer">
+          <button type="submit" class="btn btn-success" id="adicionar">
+            Adicionar
+          </button>
           <button
             type="button"
             class="btn btn-secondary"
@@ -121,9 +137,6 @@
             id="excluir"
           >
             Fechar
-          </button>
-          <button type="submit" class="btn btn-success" id="adicionar">
-            Adicionar
           </button>
         </div>
       </form>

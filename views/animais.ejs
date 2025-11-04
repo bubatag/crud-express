@@ -38,13 +38,17 @@ include('partials/navbar.ejs') %>
         <td>
           <% const status = animal.coleira?.coleira_localizacao; %>
           <% if (status === 'Normal') { %>
-            <i class="fa fa-circle" style="margin-left: 20%; margin-top: 10%; color: #06D001;"></i>
+            <!-- <i class="fa fa-circle" style="margin-left: 20%; margin-top: 10%; color: #06D001;"></i> -->
+            <img src="images/status_green.png" alt="Status Normal" style="margin-left: 10%; margin-top: 5%;">
           <% } else if (status === 'Perigo') { %>
-            <i class="fa fa-circle" style="margin-left: 20%; margin-top: 10%; color: #D00801;"></i>
+            <!-- <i class="fa fa-circle" style="margin-left: 20%; margin-top: 10%; color: #D00801;"></i> -->
+            <img src="images/status_red.png" alt="Status Perigo" style="margin-left: 10%; margin-top: 5%;">
           <% } else if (status === 'Fora') { %>
-            <i class="fa fa-circle" style="margin-left: 20%; margin-top: 10%; color: #F2C200;"></i>
+            <!-- <i class="fa fa-circle" style="margin-left: 20%; margin-top: 10%; color: #F2C200;"></i> -->
+            <img src="images/status_yellow.png" alt="Status Fora" style="margin-left: 10%; margin-top: 5%;">
           <% } else { %>
-            <i class="fa fa-circle" style="margin-left: 20%; margin-top: 10%; color: #cccccc;"></i> <!-- Cinza claro -->
+            <!-- <i class="fa fa-circle" style="margin-left: 20%; margin-top: 10%; color: #cccccc;"></i> Cinza claro -->
+             <img src="images/status_white.png" alt="Sem Conexão" style="margin-left: 10%; margin-top: 5%;">
           <% } %>
         </td>
         <td><%= animal.nome %></td>
@@ -176,6 +180,9 @@ include('partials/navbar.ejs') %>
             </select>
           </div>
           <div class="modal-footer">
+            <button type="submit" class="btn btn-success" id="adicionar">
+              Adicionar
+            </button>
             <button
               type="button"
               class="btn btn-secondary"
@@ -184,9 +191,7 @@ include('partials/navbar.ejs') %>
             >
               Fechar
             </button>
-            <button type="submit" class="btn btn-success" id="adicionar">
-              Adicionar
-            </button>
+
           </div>
         </form>
       </div>
